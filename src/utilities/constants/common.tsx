@@ -38,6 +38,7 @@ import {
 
 const SITE_TITLE = 'Tanga Banana Garden' as const
 const SITE_TITLE_UPPERCASE = SITE_TITLE.toUpperCase()
+const SITE_ALIASES = ['Tanga Garden', 'Tanga Banana', 'Tanga Banana Garden'] as const
 
 const EMAILS = {
   mail: 'mfaumehisham@gmail.com',
@@ -124,7 +125,11 @@ const SOCIALS = {
 }
 
 export const SEO_KEYWORDS = [
+  ...SITE_ALIASES,
   'Tanga Banana Garden',
+  'tanga garden',
+  'tanga-garden',
+  'Tanga Garden Tanzania',
   'Tanga farm tours',
   'banana farm Tanzania',
   'Tanga coffee tasting',
@@ -150,6 +155,7 @@ export const SEO_KEYWORDS = [
 export {
   SITE_TITLE,
   SITE_TITLE_UPPERCASE,
+  SITE_ALIASES,
   ICONS,
   SOCIALS,
   PHONE_NUMBER,

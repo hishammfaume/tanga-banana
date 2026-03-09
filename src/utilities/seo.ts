@@ -6,6 +6,7 @@ import {
   GOOGLE_MAPS_LINK,
   INSTAGRAM_LINK,
   SEO_KEYWORDS,
+  SITE_ALIASES,
   SITE_TITLE,
 } from '@/utilities/constants/common'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -67,6 +68,7 @@ export const websiteStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SITE_TITLE,
+  alternateName: [...SITE_ALIASES],
   url: getAbsoluteURL('/'),
   description: DEFAULT_META_DESCRIPTION,
   inLanguage: 'en',
@@ -76,6 +78,7 @@ export const businessStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'TouristAttraction',
   name: SITE_TITLE,
+  alternateName: [...SITE_ALIASES],
   description: DEFAULT_META_DESCRIPTION,
   address: {
     '@type': 'PostalAddress',
