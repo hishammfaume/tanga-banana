@@ -11,19 +11,7 @@ import type React from 'react'
 import { ADDRESS, EMAILS, PHONE_NUMBER, SOCIALS } from '@/utilities/constants/common'
 import Box from '@mui/material/Box'
 import Link from 'next/link'
-
-const faqs = [
-  {
-    question: 'Do I need to book in advance?',
-    answer:
-      'While walk-ins are welcome for the garden, we recommend booking farm tours and coffee tastings at least 24 hours in advance.',
-  },
-  {
-    question: 'Is the farm accessible?',
-    answer:
-      'Most main paths are flat and accessible. Some deeper groves may have uneven terrain—contact us for specific needs.',
-  },
-]
+import { CONTACT_FAQS } from './constants'
 
 const ContactInfoSection = () => {
   return (
@@ -71,12 +59,12 @@ const ContactInfoSection = () => {
           Frequently Asked Questions
         </Typography>
         <List disablePadding>
-          {faqs.map((item, idx) => (
+          {CONTACT_FAQS.map((item, idx) => (
             <ListItem
               key={item.question}
               disableGutters
               alignItems="flex-start"
-              sx={{ mb: idx === faqs.length - 1 ? 0 : 2 }}
+              sx={{ mb: idx === CONTACT_FAQS.length - 1 ? 0 : 2 }}
             >
               <ListItemText
                 primary={

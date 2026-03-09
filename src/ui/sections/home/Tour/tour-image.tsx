@@ -9,7 +9,13 @@ import NextImage from 'next/image'
 const IMAGE_SIZE = 600
 
 const TourImage = (props: TourImageProps) => {
-  return <Image src={Tourimage} alt="Tour" className={`tour-image ${props.className || ''}`} />
+  return (
+    <Image
+      src={Tourimage}
+      alt="Guided farm tour at Tanga Banana Garden in Tanga, Tanzania"
+      className={`tour-image ${props.className || ''}`}
+    />
+  )
 }
 
 const Image = styled(NextImage)(() => ({

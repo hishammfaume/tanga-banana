@@ -1,10 +1,8 @@
-'use client'
 import Box from '@mui/material/Box'
 import { SxProps } from '@mui/material/styles'
 import heroImage from 'src/assets/Landing/Background.png'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import Typewriter from 'typewriter-effect'
 import { NAVBAR } from './navbar/constants'
 import { FONTS } from '@/Theme/fonts'
 import { globalCssVar } from './GlobalStyles'
@@ -30,20 +28,13 @@ const Landing: React.FC<LandingProps> = ({ title, description }) => {
             <Typography
               color="grey.100"
               variant="h2"
+              component="h1"
               fontWeight={FONTS.poppins.fontWeights[600]}
               marginTop={1}
               lineHeight={1.25}
               className="hero-title"
             >
-              <Typewriter
-                options={{
-                  cursor: '',
-                  delay: 50,
-                }}
-                onInit={(typewriter) => {
-                  typewriter.typeString(title).start()
-                }}
-              />
+              {title}
             </Typography>
           </span>
           <div>

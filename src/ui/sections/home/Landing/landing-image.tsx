@@ -10,7 +10,11 @@ const IMAGE_SIZE = 1100
 
 const LandingImage = (props: LandingImageProps) => {
   return (
-    <Image src={landingImage} alt="Landing" className={`landing-image ${props.className || ''}`} />
+    <Image
+      src={landingImage}
+      alt="Visitors enjoying the gardens and farm experience at Tanga Banana Garden"
+      className={`landing-image ${props.className || ''}`}
+    />
   )
 }
 

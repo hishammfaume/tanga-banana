@@ -3,8 +3,6 @@ import { cn } from '@/utilities/ui'
 import Link from 'next/link'
 import React from 'react'
 
-import type { Page, Post } from '@/payload-types'
-
 type CMSLinkType = {
   appearance?: 'inline' | ButtonProps['variant']
   children?: React.ReactNode
@@ -13,7 +11,7 @@ type CMSLinkType = {
   newTab?: boolean | null
   reference?: {
     relationTo: 'pages' | 'posts'
-    value: Page | Post | string | number
+    value: string | number
   } | null
   size?: ButtonProps['size'] | null
   type?: 'custom' | 'reference' | null
@@ -34,10 +32,8 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   } = props
 
   const href =
-    type === 'reference' && typeof reference?.value === 'object' && reference.value.slug
-      ? `${reference?.relationTo !== 'pages' ? `/${reference?.relationTo}` : ''}/${
-          reference.value.slug
-        }`
+    type === 'reference' && typeof reference?.value === 'object' && reference.value
+      ? `${reference?.relationTo !== 'pages' ? `/${reference?.relationTo}` : ''}/${reference.value}`
       : url
 
   if (!href) return null

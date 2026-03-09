@@ -12,16 +12,35 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import './globals.css'
 import Navbar from '@/ui/components/navbar/Navbar'
 import { SEO_KEYWORDS, SITE_TITLE } from '@/utilities/constants/common'
+import { DEFAULT_META_DESCRIPTION, SITE_ORIGIN } from '@/utilities/seo'
 import EXPERIENCE_ITEMS from '@/ui/sections/home/Experiences/constants'
 
 export const metadata: Metadata = {
+  metadataBase: SITE_ORIGIN,
+  applicationName: SITE_TITLE,
   title: {
     template: `${SITE_TITLE} | %s`,
-    absolute: `${SITE_TITLE} | Home`,
+    default: SITE_TITLE,
   },
   openGraph: mergeOpenGraph(),
-  description:
-    'Experience the serene beauty of Tanga Banana Garden - your perfect day tour escape into nature.',
+  description: DEFAULT_META_DESCRIPTION,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: DEFAULT_META_DESCRIPTION,
+    images: ['/android-chrome-512x512.png'],
+  },
   icons: [
     {
       rel: 'apple-touch-icon',

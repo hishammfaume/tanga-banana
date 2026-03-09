@@ -17,6 +17,7 @@ const LandingSection = () => {
         <Stack spacing={2} justifyContent={'center'} alignItems="center" textAlign="center">
           <Typography
             variant="h2"
+            component="h1"
             color="grey.800"
             textAlign="center"
             fontWeight={FONTS.poppins.fontWeights[600]}
