@@ -21,6 +21,7 @@ export const DEFAULT_META_DESCRIPTION =
 const DEFAULT_SOCIAL_IMAGE = '/android-chrome-512x512.png'
 
 type CreatePageMetadataArgs = {
+  absoluteTitle?: string
   title: string
   description: string
   path: string
@@ -35,6 +36,7 @@ type FaqItem = {
 export const getAbsoluteURL = (path = '/') => new URL(path, SITE_ORIGIN).toString()
 
 export const createPageMetadata = ({
+  absoluteTitle,
   title,
   description,
   path,
@@ -44,7 +46,7 @@ export const createPageMetadata = ({
   const socialTitle = `${SITE_TITLE} | ${title}`
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: absoluteTitle } : title,
     description,
     alternates: {
       canonical: path,

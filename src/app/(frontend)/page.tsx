@@ -1,4 +1,5 @@
 import { JsonLd } from '@/components/JsonLd'
+import { SITE_TITLE } from '@/utilities/constants/common'
 import {
   businessStructuredData,
   createPageMetadata,
@@ -15,6 +16,7 @@ import React from 'react'
 
 export const metadata = createPageMetadata({
   title: 'Farm Tours, Coffee Tasting and Nature Escape',
+  absoluteTitle: `${SITE_TITLE} | Farm Tours, Coffee Tasting and Nature Escape`,
   description:
     'Book a peaceful farm visit in Tanga for banana garden walks, coffee tasting, spice experiences, and family-friendly nature time.',
   path: '/',

@@ -4,15 +4,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SERVER_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'https://example.com'
 
-const normalizePath = (path) => {
-  if (path === '/') return path
-
-  return path.replace(/\/+$/, '')
-}
-
 const STATIC_PAGE_PATHS = ['/', '/about/', '/contact/', '/experiences/']
 
-const SITEMAP_FIELDS = Array.from(new Set(STATIC_PAGE_PATHS.map(normalizePath))).map((path) => ({
+const SITEMAP_FIELDS = Array.from(new Set(STATIC_PAGE_PATHS)).map((path) => ({
   loc: path,
   lastmod: new Date().toISOString(),
   changefreq: 'weekly',
