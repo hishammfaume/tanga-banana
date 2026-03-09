@@ -1,0 +1,43 @@
+<mjml>
+  <mj-body background-color="#f5f7fa">
+    <mj-section background-color="#eeeeee" padding="12px 0">
+      <mj-column></mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="24px 24px 0 24px">
+      <mj-column>
+        <mj-text font-size="22px" color="#0F0A33" font-weight="700">
+          {{ title }}
+        </mj-text>
+        <mj-text font-size="14px" line-height="20px" color="#4f5d6a">
+          {{ description }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="12px 24px 24px 24px">
+      <mj-column>
+        <mj-table>
+          <tr style="border-bottom: 1px solid #ecedee; text-align: left">
+            <th style="padding: 8px 8px 8px 0; font-size: 13px; color: #0f0a33">Field</th>
+            <th style="padding: 8px 0 8px 8px; font-size: 13px; color: #0f0a33">Value</th>
+          </tr>
+          {{#each booking.items}}
+          <tr style="border-bottom: 1px solid #ecedee; text-align: left">
+            <td style="padding: 10px 8px 10px 0; font-size: 13px; color: #44505c">{{ label }}</td>
+            <td style="padding: 10px 0 10px 8px; font-size: 13px; color: #0f0a33">{{ value }}</td>
+          </tr>
+          {{/each}}
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#0F0A33" padding="14px 24px">
+      <mj-column>
+        <mj-text font-size="11px" color="#9fa8b1" line-height="14px" align="center">
+          Tanga Banana booking notification
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

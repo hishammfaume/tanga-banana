@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "target": "ES2022",
     "lib": [
       "DOM",
@@ -19,6 +21,9 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "isolatedModules": true,
+    "types":[
+      "bun"
+    ],
     "plugins": [
       {
         "name": "next"

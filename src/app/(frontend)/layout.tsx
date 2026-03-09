@@ -5,36 +5,68 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
-import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
-import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { draftMode } from 'next/headers'
 
 import './globals.css'
-import { getServerSideURL } from '@/utilities/getURL'
+import Navbar from '@/ui/components/navbar/Navbar'
+import { SEO_KEYWORDS, SITE_TITLE } from '@/utilities/constants/common'
+import EXPERIENCE_ITEMS from '@/ui/sections/home/Experiences/constants'
+
+export const metadata: Metadata = {
+  title: {
+    template: `${SITE_TITLE} | %s`,
+    absolute: `${SITE_TITLE} | Home`,
+  },
+  openGraph: mergeOpenGraph(),
+  description:
+    'Experience the serene beauty of Tanga Banana Garden - your perfect day tour escape into nature.',
+  icons: [
+    {
+      rel: 'apple-touch-icon',
+      url: '/apple-touch-icon.png',
+      type: 'image/png',
+      sizes: '180x180',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      url: '/favicon-32x32.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      url: '/favicon-16x16.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '192x192',
+      url: '/android-chrome-192x192.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '512x512',
+      url: '/android-chrome-512x512.png',
+    },
+  ],
+  keywords: [...SEO_KEYWORDS, ...EXPERIENCE_ITEMS.map((item) => item.title)],
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
-
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
-        <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-
-          <Header />
+          <Navbar />
           {children}
           <Footer />
         </Providers>
@@ -43,11 +75,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   )
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getServerSideURL()),
-  openGraph: mergeOpenGraph(),
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@payloadcms',
-  },
-}
+// export const metadata: Metadata = {
+//   metadataBase: new URL(getServerSideURL()),
+//   openGraph: mergeOpenGraph(),
+//   twitter: {
+//     card: 'summary_large_image',
+//     creator: '@payloadcms',
+//   },
+// }
