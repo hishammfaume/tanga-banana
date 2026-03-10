@@ -44,7 +44,7 @@ const LINKS: FooterLinkGroup[] = [
       },
       {
         title: EMAILS.mail,
-        href: `mailto:${EMAILS.mail}`,
+        href: EMAILS.mailto,
         icon: ICONS.email_outlined,
         external: true,
       },

@@ -2,6 +2,7 @@ import { JsonLd } from '@/components/JsonLd'
 import {
   createBreadcrumbStructuredData,
   createFaqStructuredData,
+  createLocalBusinessStructuredData,
   createPageMetadata,
 } from '@/utilities/seo'
 import Box from '@mui/material/Box'
@@ -17,11 +18,16 @@ import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card'
 
 export const metadata = createPageMetadata({
-  title: 'Contact and Book a Farm Visit',
+  title: 'Book a Farm Tour in Tanga | Contact and Directions',
   description:
-    'Contact Tanga Banana Garden to ask questions, get directions, or book your farm tour and coffee tasting in Tanga, Tanzania.',
+    'Contact Tanga Banana Garden for directions, farm tour bookings, coffee tasting visits, and school trip planning in Tanga, Tanzania.',
   path: '/contact',
-  keywords: ['contact Tanga Banana Garden', 'book farm tour Tanga', 'Tanga farm location'],
+  keywords: [
+    'book farm tour Tanga',
+    'Tanga farm location',
+    'school visit contact Tanga',
+    'coffee tasting booking Tanga',
+  ],
 })
 
 const breadcrumbStructuredData = createBreadcrumbStructuredData([
@@ -36,11 +42,12 @@ const ContactPage = () => {
     <>
       <JsonLd data={breadcrumbStructuredData} />
       <JsonLd data={faqStructuredData} />
+      <JsonLd data={createLocalBusinessStructuredData()} />
       <Box component="main">
         <PageContainer>
           <Landing
-            title="Get in Touch"
-            description="Have questions about our farm tours, coffee tasting, bananas, banana growing or planning a school visit? We'd love to hear from you."
+            title="Contact Tanga Banana Garden"
+            description="Use this page to get directions, ask about farm tours and coffee experiences, or plan a family visit or school trip in Tanga."
           />
         </PageContainer>
         <SectionSpacer small />

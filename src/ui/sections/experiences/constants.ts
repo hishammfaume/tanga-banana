@@ -15,11 +15,11 @@ const FULL_EXPERIENCE_ITEMS: {
 }[] = [
   {
     sectionId: 'farm-tours',
-    title: 'Farm Tours & Hands-on Learning',
+    title: 'Farm Tours & Hands-on Learning in Tanga',
     caption:
-      'A rich, educational walkthrough the groves that offers practical lessons for students,families, and curious minds of all generations.',
+      'A guided farm tour in Tanga that combines practical learning, calm walking paths, and up-close time with banana, coffee, and spice crops.',
     description:
-      'Beyond a simple walk, this tour is an interactive classroom. Schools and students can engage in practical lessons right here in the soil, learning about organic cycles and crop care firsthand. It is a learning experience designed for everyone—especially children— to touch, smell, and understand the real work of farming.',
+      'Beyond a simple walk, this experience works like an outdoor classroom. Families and school groups can see how crops are cared for, ask practical farming questions, and understand how a working farm near Tanga city creates both food and meaningful visitor experiences.',
     points: [
       'Hands-on agricultural lessons for school groups and students',
       'Interactive learning for children and families',
@@ -31,11 +31,11 @@ const FULL_EXPERIENCE_ITEMS: {
   },
   {
     sectionId: 'tanga-coffee',
-    title: 'Tanga Coffee Experience',
+    title: 'Tanga Coffee Tasting Experience',
     caption:
-      'Enjoy the authentic aroma of organic coffee, brewed right in the garden by the local farmers.',
+      'Enjoy the aroma of fresh Tanga coffee prepared in the garden by local growers who understand the land and the process.',
     description:
-      'There is no machine here—just the skill of local farmers roasting and brewing fresh beans in the traditional way. Sit back and watch the process unfold, then enjoy a warm cup that captures the true essence of the land in Tanga. It’s a direct connection from the soil to your cup, served with genuine hospitality.',
+      'This is a slower coffee experience built around storytelling and preparation, not just a quick drink. Watch the roasting and brewing, learn how coffee fits into the farm, and enjoy a cup that makes the visit feel rooted in Tanga rather than staged for tourists.',
     points: [
       'Coffee prepared and brewed by local farmers',
       'Experience the real aroma of organic Tanga coffee',
@@ -49,9 +49,9 @@ const FULL_EXPERIENCE_ITEMS: {
     sectionId: 'cultural-walks',
     title: 'Cultural & Nature Walks',
     caption:
-      'Extend your journey beyond the farm to discover historical caves, village life, and unique local landmarks.',
+      'Extend your visit beyond the farm to discover village life, local heritage, and nearby landmarks such as Amboni Caves and Tongoni Ruins.',
     description:
-      "This guided walk takes you deeper into the Tanga region's heritage. Visit fascinating nearby sites like the Tongoni Ruins and the Amboni Natural Caves that hold stories of the past. It is an opportunity to explore the hidden gems of the area while connecting with the people who call this place home.",
+      "This guided walk helps visitors connect the farm to the wider Tanga region. It brings together local history, community stories, and the quieter side of travel for guests who want more than a standard checklist of attractions.",
     points: [
       'Visit local historical sites.',
       'Walk through the village and meet community members',
@@ -65,9 +65,9 @@ const FULL_EXPERIENCE_ITEMS: {
     sectionId: 'garden-relaxation',
     title: 'Fresh Air & Garden Relaxation',
     caption:
-      'Escape the city congestion and breathe deeply in the cool, oxygen-rich environment of our green groves.',
+      'Step away from city noise and spend time in a calm, oxygen-rich garden setting that rewards slower travel.',
     description:
-      'Sometimes the best activity is simply being present. The farm offers a sanctuary of fresh, clean air and quiet corners where you can unwind. Whether you want to read a book, take a nap, or just let the kids run free in a safe space, the garden provides the perfect natural reset.',
+      'Sometimes the most valuable experience is simply space to breathe. The garden offers shade, quiet corners, and safe open areas that let families rest, children explore, and day-trippers reset before returning to the city.',
     points: [
       'Breathe pure, fresh country air away from the city',
       'Enjoy a peaceful environment for mental relaxation',

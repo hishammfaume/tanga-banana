@@ -41,7 +41,7 @@ const AboutUsSection = () => {
             fontWeight={600}
             lineHeight={1.25}
           >
-            Tanga&apos;s Hidden Garden Farm
+            A Working Banana, Coffee and Spice Farm in Tanga
           </Typography>
           <Typography variant="body2" color="grey.500" textAlign="start" maxWidth={500}>
             Tanga Banana Garden is a working banana, coffee, and spice farm in the city of Tanga,
@@ -50,34 +50,35 @@ const AboutUsSection = () => {
           </Typography>
           <Grid container spacing={2} mt={1}>
             <Grid>
-              <Chip label="Quick city break from Tanga" variant="filled" />
+              <Chip label="Easy day trip from Tanga city" variant="filled" />
             </Grid>
             <Grid>
-              <Chip label="Peaceful garden groves" variant="filled" />
+              <Chip label="Banana, coffee and spice groves" variant="filled" />
             </Grid>
             <Grid>
-              <Chip label="Locally guided experiences" variant="filled" />
+              <Chip label="Family and school friendly visits" variant="filled" />
             </Grid>
           </Grid>
           <Button
-            variant="text"
+            variant="outlined"
             color="primary"
             component={Link}
             href={routes.about}
             disableElevation
             sx={{
-              border: 'none',
+              // border: 'none',
+              display: { xs: 'none', [NAVBAR.BREAKPOINT]: 'inline-flex' },
               mt: 1.5,
               borderRadius: '10px',
               textTransform: 'none',
               width: { xs: '100%', sm: 'auto' },
               boxShadow: 'none',
-              px: 0,
+              px: 2,
               '&:hover': { boxShadow: 'none' },
             }}
             endIcon={ICONS.arrow_forward}
           >
-            Learn more
+            Learn More About Us
           </Button>
         </Stack>
         <Stack
@@ -100,7 +101,7 @@ const AboutUsSection = () => {
               action={null}
               sx={{ alignItems: 'flex-start' }}
               title="Made for Families & Nature Lovers"
-              subheader="Safe walking paths, shaded resting spots, and friendly guides make this a perfect close-to-the-city day tour."
+              subheader="Safe walking paths, shaded rest stops, and welcoming hosts make this an easy day trip for families, travelers, and school groups."
               slotProps={{
                 title: { color: 'grey.800', align: 'left', fontWeight: 600 },
                 subheader: { color: 'grey.500', align: 'left' },
@@ -120,7 +121,7 @@ const AboutUsSection = () => {
               action={null}
               sx={{ alignItems: 'flex-start' }}
               title="Rooted in Organic Farming"
-              subheader="We grow bananas, coffee, and spices using organic methods that respect the land and support local biodiversity."
+              subheader="We grow bananas, coffee, and spices using farming practices that respect the soil, support biodiversity, and create meaningful learning for visitors."
               slotProps={{
                 title: { color: 'grey.800', align: 'left', fontWeight: 600 },
                 subheader: { color: 'grey.500', align: 'left' },
@@ -128,6 +129,27 @@ const AboutUsSection = () => {
             />
           </Card>
         </Stack>
+        <Button
+          variant="outlined"
+          color="primary"
+          component={Link}
+          href={routes.about}
+          disableElevation
+          sx={{
+            // border: 'none',
+            display: { xs: 'inline-flex', [NAVBAR.BREAKPOINT]: 'none' },
+            mt: 1.5,
+            borderRadius: '10px',
+            textTransform: 'none',
+            width: { xs: '100%', sm: 'auto' },
+            boxShadow: 'none',
+            px: 2,
+            '&:hover': { boxShadow: 'none' },
+          }}
+          endIcon={ICONS.arrow_forward}
+        >
+          Learn More About Us
+        </Button>
       </Stack>
     </PageContainer>
   )

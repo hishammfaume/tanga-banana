@@ -12,7 +12,7 @@ const LandingImage = (props: LandingImageProps) => {
   return (
     <Image
       src={landingImage}
-      alt="Visitors enjoying the gardens and farm experience at Tanga Banana Garden"
+      alt="Visitors enjoying a banana, coffee, and spice farm tour at Tanga Banana Garden in Tanga"
       className={`landing-image ${props.className || ''}`}
     />
   )

@@ -2,19 +2,22 @@ import type { Metadata } from 'next'
 import { SITE_TITLE } from '@/utilities/constants/common'
 import { getServerSideURL } from './getURL'
 
+const DEFAULT_SOCIAL_IMAGE = '/android-chrome-512x512.png'
+const DEFAULT_OG_DESCRIPTION =
+  'Book farm tours in Tanga for banana grove walks, coffee tasting, spice experiences, school visits, and peaceful countryside time at Tanga Banana Garden.'
+
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description:
-    'Explore farm tours, coffee tasting, and nature experiences at Tanga Banana Garden in Tanga, Tanzania.',
+  description: DEFAULT_OG_DESCRIPTION,
   images: [
     {
-      url: `${getServerSideURL()}/android-chrome-512x512.png`,
+      url: `${getServerSideURL()}${DEFAULT_SOCIAL_IMAGE}`,
       width: 512,
       height: 512,
-      alt: 'Tanga Banana Garden logo',
+      alt: 'Banana, coffee, and spice farm experiences at Tanga Banana Garden in Tanga',
     },
   ],
-  locale: 'en_US',
+  locale: 'en_TZ',
   siteName: SITE_TITLE,
   title: SITE_TITLE,
 }

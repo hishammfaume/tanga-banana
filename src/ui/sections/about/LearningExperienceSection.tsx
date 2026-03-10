@@ -1,10 +1,13 @@
 import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 import Stack from '@mui/material/Stack'
 import React from 'react'
 import Learning from '@/assets/Farm/LearningExp.png'
 import HeroImage from '../experiences/hero-image'
 import Typography from '@mui/material/Typography'
 import PageContainer from '@/ui/components/page-container'
+import NextLink from 'next/link'
+import { routes } from '@/routes'
 
 const LearningExperienceSection = () => {
   return (
@@ -30,18 +33,24 @@ const LearningExperienceSection = () => {
               A Learning Experience
             </Typography>
             <Typography variant="body2" align="left" color="grey.500">
-              We open our gates to everyone—from curious toddlers to seasoned nature lovers. The
-              Tanga Banana Garden is a living classroom where you can touch, smell, and taste the
-              fruits of the land.
+              Tanga Banana Garden is a practical learning environment for children, families,
+              school groups, and curious travelers who want to understand farming through real
+              crops, real soil, and guided conversation.
             </Typography>
             <Typography variant="body2" align="left" color="grey.500">
-              Whether it is a cultural walk to nearby caves or a hands-on lesson in Tanga coffee
-              making, our goal is to share the &quot;real aroma&quot; of Tanzania with you. We
-              invite you to leave the noise of the city behind and enjoy quality time in our green
-              embrace.
+              Guests can learn about banana and spice cultivation, watch a Tanga coffee moment come
+              together, and connect the farm visit to nearby cultural stops. For questions about
+              group planning, visit our{' '}
+              <Link component={NextLink} href={routes.contact} color="primary.main" underline="hover">
+                booking and contact page
+              </Link>
+              .
             </Typography>
           </Stack>
-          <HeroImage src={Learning} alt="Learning Experience Image" />
+          <HeroImage
+            src={Learning}
+            alt="Students and visitors learning about banana, coffee, and spice farming in Tanga"
+          />
         </Stack>
       </PageContainer>
     </Box>

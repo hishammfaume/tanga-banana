@@ -2,15 +2,15 @@
 // import { joinPaths } from './utilities/urls'
 
 export const experiences = {
-  root: '/experiences/',
+  root: '/experiences',
 }
 
 export const about = {
-  root: '/about/',
+  root: '/about',
 }
 
 export const contact = {
-  root: '/contact/',
+  root: '/contact',
 }
 
 export const routes = {

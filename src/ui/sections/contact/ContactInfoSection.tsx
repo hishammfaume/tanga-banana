@@ -8,7 +8,13 @@ import CallIcon from '@mui/icons-material/Call'
 import EmailIcon from '@mui/icons-material/Email'
 import RoomIcon from '@mui/icons-material/Room'
 import type React from 'react'
-import { ADDRESS, EMAILS, PHONE_NUMBER, SOCIALS } from '@/utilities/constants/common'
+import {
+  ADDRESS,
+  BUSINESS_OPENING_HOURS,
+  EMAILS,
+  PHONE_NUMBER,
+  SOCIALS,
+} from '@/utilities/constants/common'
 import Box from '@mui/material/Box'
 import Link from 'next/link'
 import { CONTACT_FAQS } from './constants'
@@ -31,7 +37,8 @@ const ContactInfoSection = () => {
           <ContactInfoRow
             icon={<EmailIcon color="primary" />}
             title="Email Us"
-            lines={[{ text: EMAILS.mail }]}
+            titleHref={EMAILS.mailto}
+            lines={[{ text: EMAILS.mail, href: EMAILS.mailto }]}
           />
           <ContactInfoRow
             icon={<CallIcon color="primary" />}
@@ -39,11 +46,15 @@ const ContactInfoSection = () => {
             titleHref={PHONE_NUMBER.contact.href}
             lines={[
               { text: PHONE_NUMBER.contact.formatted, href: PHONE_NUMBER.contact.href },
-              { text: 'Mon–Sun, 8am – 6pm' },
+              { text: BUSINESS_OPENING_HOURS.label },
             ]}
           />
           <ContactInfoRow
-            icon={<Box component="span" sx={{ display: 'flex', color: 'primary.main' }}>{SOCIALS.whatsapp.icon}</Box>}
+            icon={
+              <Box component="span" sx={{ display: 'flex', color: 'primary.main' }}>
+                {SOCIALS.whatsapp.icon}
+              </Box>
+            }
             title="WhatsApp Us"
             titleHref={SOCIALS.whatsapp.link}
             lines={[
@@ -56,8 +67,9 @@ const ContactInfoSection = () => {
 
       <Box sx={{ p: { xs: 2.5, md: 3 }, borderRadius: 1 }}>
         <Typography variant="h6" fontWeight={600} gutterBottom color="grey.700">
-          Frequently Asked Questions
+          Booking and visitor questions
         </Typography>
+
         <List disablePadding>
           {CONTACT_FAQS.map((item, idx) => (
             <ListItem
@@ -123,7 +135,12 @@ const ContactInfoRow = ({
                 </Typography>
               </Link>
             ) : (
-              <Typography key={`${title}-${line.text}`} variant="body2" color="grey.600" component="span">
+              <Typography
+                key={`${title}-${line.text}`}
+                variant="body2"
+                color="grey.600"
+                component="span"
+              >
                 {line.text}
               </Typography>
             ),

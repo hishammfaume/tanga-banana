@@ -31,8 +31,8 @@ const ExperiencesSection = () => {
           Explore each experience through richer stories and a stronger visual rhythm.
         </Typography>
         <Typography variant="body2" color="grey.600">
-          From hands-on learning to quiet garden breaks, each stop on the farm now sits in a more
-          polished, gallery-style layout.
+          Each experience is designed to help visitors understand the farm, enjoy the landscape, and
+          choose the right mix of learning, culture, and relaxation for their visit.
         </Typography>
       </Stack>
 

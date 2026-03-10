@@ -16,7 +16,7 @@ Marketing, bookings, and contact capture for a working banana, coffee, and spice
 - Contact enquiries: `/api/contact` creates `contact-messages`, replies to the sender, and notifies the team.
 - Admin at `/admin`: manage reservations, contact messages, and users (auth-enabled).
 - Live preview endpoint at `/next/preview` gated by `PREVIEW_SECRET`.
-- Sitemaps at `/pages-sitemap.xml` and `/posts-sitemap.xml` driven by Payload content.
+- Runtime SEO routes at `/robots.txt` and `/sitemap.xml`.
 
 ## Project structure (high level)
 - `src/app/(frontend)` — public site pages, APIs for contact/preview, and marketing sections.
@@ -30,7 +30,7 @@ Marketing, bookings, and contact capture for a working banana, coffee, and spice
 Copy `.env.example` to `.env` and fill these values:
 - `DATABASE_URL` — Postgres connection string (required; the project uses the Postgres adapter).
 - `PAYLOAD_SECRET` — secret used to sign JWTs.
-- `NEXT_PUBLIC_SERVER_URL` — base URL without trailing slash (used for links and image domains).
+- `NEXT_PUBLIC_SERVER_URL` — base URL without trailing slash (used for links, canonicals, image domains, and sitemap generation).
 - `CRON_SECRET` — bearer token to authorize scheduled jobs.
 - `PREVIEW_SECRET` — token required by `/next/preview`.
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` — SMTP credentials for Nodemailer.
@@ -61,13 +61,16 @@ Copy `.env.example` to `.env` and fill these values:
 - (Media collection exists in code but is not currently registered in `src/payload.config.ts`; add it to `collections` if uploads are needed.)
 
 ## Deployment notes
+- Ensure `NEXT_PUBLIC_SERVER_URL` is set to the live custom domain in production.
+- Runtime metadata routes now serve `/robots.txt` and `/sitemap.xml`; do not commit generated sitemap files from localhost builds.
 - Ensure the image domain in `next.config.js` matches `NEXT_PUBLIC_SERVER_URL`.
 - Provide a Postgres database in production; the adapter expects a valid `DATABASE_URL`.
 - Set SMTP and notification emails before enabling bookings or contact forms in production.
 - If you enable additional Payload collections or admin components, regenerate types and the import map.
+- Follow the operational checklist in [`docs/seo-operations.md`](docs/seo-operations.md) after each production deployment.
 
 ## Known gaps / TODOs
-- Legacy blog routes (`/posts`, sitemaps) remain from the template; re-enable the related collections before using them or remove the routes.
+- Legacy blog routes (`/posts`) remain from the template; re-enable the related collections before using them or remove the routes.
 - The bundled docker-compose file uses Mongo; replace with Postgres or update to match your environment.
 
 ## Support

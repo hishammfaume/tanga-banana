@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
+    "postbuild": "node -e \"console.log('App Router metadata routes generate robots.txt and sitemap.xml.')\"",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -64,6 +64,7 @@
     "html-minifier": "^4.0.0",
     "lucide-react": "0.563.0",
     "mjml": "^4.18.0",
+    "mailtrap": "^4.4.0",
     "next": "15.4.11",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^8.0.1",

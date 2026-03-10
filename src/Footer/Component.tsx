@@ -35,12 +35,12 @@ export function Footer() {
         <PageContainer ignoreNavHeight transparent>
           <Stack alignItems="center" justifyContent="center" py={8} spacing={3}>
             <Typography variant="h3" color="grey.800">
-              Ready for your peaceful escape?
+              Ready to book a farm tour in Tanga?
             </Typography>
             <Stack alignItems={'center'} justifyContent="center" spacing={3}>
               <Typography variant="body2" color="grey.500" mt={2} textAlign="center" maxWidth={500}>
-                Book your day tour today and enjoy quality time surrounded by nature at Tanga Banana
-                Garden.
+                Plan a family outing, coffee visit, or school trip and spend time at a working
+                banana, coffee, and spice farm close to Tanga city.
               </Typography>
               <Button
                 size="large"
@@ -51,7 +51,7 @@ export function Footer() {
                 onClick={() => openModal()}
                 sx={{ borderRadius: '10px' }}
               >
-                Book Your Farm Visit Now
+                Book Your Farm Visit
               </Button>
             </Stack>
           </Stack>
@@ -74,9 +74,9 @@ export function Footer() {
                   sx={{ marginTop: 2 }}
                   fontWeight={FONTS.poppins.fontWeights[400]}
                 >
-                  A peaceful farm attraction in the City of Tanga, Tanzania offering farm tours,
-                  cultural walks, fresh Tanga coffee and memorable organic farming experiences for
-                  all generations.
+                  Tanga Banana Garden is a working farm in Tanga, Tanzania offering guided farm
+                  tours, coffee tasting, cultural walks, and educational visits for families,
+                  travelers, and school groups.
                 </Typography>
               </Stack>
             </Grid>
