@@ -36,32 +36,46 @@ const FaqSection = ({ title, description, items }: FaqSectionProps) => {
       </Stack>
 
       <Stack spacing={1.5}>
-        {items.map((item) => (
-          <Accordion
-            key={item.question}
-            disableGutters
-            sx={{
-              borderRadius: '20px',
-              overflow: 'hidden',
-              border: '1px solid rgba(34, 44, 35, 0.08)',
-              boxShadow: 'none',
-              '&::before': {
-                display: 'none',
-              },
-            }}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon color="primary" />}>
-              <Typography variant="subtitle1" color="grey.900" fontWeight={600}>
-                {item.question}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography variant="body2" color="grey.600" lineHeight={1.8}>
-                {item.answer}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
+        {items.map((item) => {
+          const baseId =
+            item.question
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '') || 'faq-item'
+          const summaryId = `${baseId}-header`
+          const detailsId = `${baseId}-content`
+
+          return (
+            <Accordion
+              key={item.question}
+              disableGutters
+              sx={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                border: '1px solid rgba(34, 44, 35, 0.08)',
+                boxShadow: 'none',
+                '&::before': {
+                  display: 'none',
+                },
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon color="primary" />}
+                id={summaryId}
+                aria-controls={detailsId}
+              >
+                <Typography variant="subtitle1" color="grey.900" fontWeight={600}>
+                  {item.question}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails id={detailsId} aria-labelledby={summaryId}>
+                <Typography variant="body2" color="grey.600" lineHeight={1.8}>
+                  {item.answer}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          )
+        })}
       </Stack>
     </Stack>
   )
