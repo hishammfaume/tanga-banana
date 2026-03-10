@@ -27,9 +27,10 @@ const LandingSection = () => {
             Escape to Nature&apos;s Paradise in Tanga
           </Typography>
           <Typography variant="body2" color="grey.500" textAlign="center" mt={2}>
-            Discover a peaceful banana, coffee, and spice farm where lush green groves and fresh
-            country air set the perfect scene for your city break.
+            Discover a peaceful banana, coffee, and spice farm in Tanga, where lush green groves and
+            fresh country air set the perfect scene for your city break.
           </Typography>
+
           <Stack direction="row" spacing={2}>
             <Button
               variant="contained"

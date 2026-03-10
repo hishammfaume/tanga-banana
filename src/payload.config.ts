@@ -4,6 +4,7 @@ import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { MailtrapTransport } from 'mailtrap'
 import nodemailer from 'nodemailer'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/app/(payload)/admin/fields/defaultLexical'
@@ -15,6 +16,24 @@ import { ContactMessages } from './app/(payload)/admin/collections/ContactMessag
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const defaultFromAddress = process.env.EMAIL_FROM_ADDRESS || 'info@tanga-garden.com'
+const defaultFromName = process.env.EMAIL_FROM_NAME || 'Tanga Banana'
+const mailtrapToken = process.env.MAILTRAP_TOKEN
+
+const emailTransport = mailtrapToken
+  ? nodemailer.createTransport(
+      MailtrapTransport({
+        token: mailtrapToken,
+      }),
+    )
+  : nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    })
 
 export default buildConfig({
   admin: {
@@ -87,15 +106,8 @@ export default buildConfig({
     tasks: [],
   },
   email: nodemailerAdapter({
-    defaultFromAddress: 'mfaumehisham@gmail.com',
-    defaultFromName: 'Tanga Banana',
-    transport: nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    }),
+    defaultFromAddress,
+    defaultFromName,
+    transport: emailTransport,
   }),
 })

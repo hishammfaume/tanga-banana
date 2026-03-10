@@ -12,7 +12,7 @@ const LogoWide = ({ isScrolled }: LogoWideProps) => {
   return (
     <Image
       src={isScrolled ? LOGO.light : LOGO.light}
-      alt="Logo"
+      alt="Tanga Banana Garden logo"
       priority
       unoptimized
       className="logo-wide"

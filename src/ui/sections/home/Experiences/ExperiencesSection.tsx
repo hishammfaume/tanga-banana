@@ -21,11 +21,12 @@ const ExperiencesSection = () => {
               fontWeight={600}
               // marginTop={1}
             >
-              Authentic Farm Experiences
+              Authentic Farm Experiences in Tanga
             </Typography>
             <Typography variant="body2" color="grey.500" textAlign="center" maxWidth={600}>
-              Immerse yourself in the authentic sights, sounds, and flavors of our organic farm. A
-              perfect day tour for nature lovers and families.
+              Explore guided farm tours, fresh coffee moments, cultural walks, and quiet green
+              spaces that make Tanga Banana Garden a memorable day trip for families, travelers,
+              and student groups.
             </Typography>
           </Stack>
           <Stack direction={{ xs: 'column', [NAVBAR.BREAKPOINT]: 'row' }} spacing={2}>

@@ -25,8 +25,6 @@ const NavbarCallToActionButtons: React.FC<NavbarCallToActionButtonsProps> = ({ m
         variant="contained"
         color="primary"
         disableElevation
-        // LinkComponent={Link}
-        // href={routes.contact}
         onClick={() => openModal()}
         fullWidth
         sx={{ color: 'grey.100', borderRadius: '10px' }}

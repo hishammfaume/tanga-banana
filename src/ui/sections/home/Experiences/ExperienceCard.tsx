@@ -39,21 +39,21 @@ const ExperienceCard = ({ icon, title, description, learnMoreHref }: ExperienceC
         {learnMoreHref ? (
           <Button
             size="small"
-              variant="text"
-              component={Link}
-              href={learnMoreHref}
-              disableElevation
-              sx={{
-                border: 'none',
-                textTransform: 'none',
-                borderRadius: '10px',
-                boxShadow: 'none',
-                px: 0,
-                '&:hover': { boxShadow: 'none' },
-              }}
-              endIcon={ICONS.arrow_forward}
-            >
-              Learn more
+            variant="text"
+            component={Link}
+            href={learnMoreHref}
+            disableElevation
+            sx={{
+              border: 'none',
+              textTransform: 'none',
+              borderRadius: '10px',
+              boxShadow: 'none',
+              px: 2,
+              '&:hover': { boxShadow: 'none' },
+            }}
+            endIcon={ICONS.arrow_forward}
+          >
+            Learn more
           </Button>
         ) : null}
       </CardActions>

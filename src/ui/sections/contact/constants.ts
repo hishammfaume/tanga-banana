@@ -2,7 +2,7 @@ export const CONTACT_FAQS = [
   {
     question: 'Do I need to book in advance?',
     answer:
-      'While walk-ins are welcome for the garden, we recommend booking farm tours and coffee tastings at least 24 hours in advance.',
+      'While walk-ins are welcome for the garden, we recommend booking farm tours, coffee experiences, and school visits at least 24 hours in advance.',
   },
   {
     question: 'Is the farm accessible?',

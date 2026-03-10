@@ -42,22 +42,33 @@ const SITE_ALIASES = ['Tanga Garden', 'Tanga Banana', 'Tanga Banana Garden'] as 
 
 const EMAILS = {
   mail: 'mfaumehisham@gmail.com',
+  mailto: 'mailto:mfaumehisham@gmail.com',
 }
 
 const INSTAGRAM_LINK = 'https://www.instagram.com/thebg_farm/reels/?__d=1%3Futm_source%3Dig_embed'
 const GOOGLE_MAPS_LINK = 'https://maps.app.goo.gl/VhBWDs2HJHPjsbVk8'
 const ADDRESS = 'Ungwana, Mtakuja Mkembe, Tanga, Tanzania'
+const BUSINESS_COORDINATES = {
+  latitude: -5.2207427,
+  longitude: 38.9810794,
+} as const
+const BUSINESS_OPENING_HOURS = {
+  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  opens: '08:00',
+  closes: '18:00',
+  label: 'Mon-Sun, 8am - 6pm',
+} as const
 export const CURRENT_YEAR =
   typeof window === 'undefined' ? new Date().getFullYear() : new Date().getFullYear()
 
 const PHONE_NUMBER = {
   contact: {
-    formatted: '+1234567890',
-    href: 'tel:+1234567890',
+    formatted: '0702 666773',
+    href: 'tel:+255702666773',
   },
   whatsapp: {
-    formatted: '+0987654321',
-    href: '+0987654321',
+    formatted: '0742104020',
+    href: 'tel:+255742104020',
   },
 }
 
@@ -251,6 +262,8 @@ export {
   PHONE_NUMBER,
   EMAILS,
   ADDRESS,
+  BUSINESS_COORDINATES,
+  BUSINESS_OPENING_HOURS,
   INSTAGRAM_LINK,
   GOOGLE_MAPS_LINK,
   WHATSAPP_LINK,

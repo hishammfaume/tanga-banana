@@ -9,15 +9,15 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Footer } from '@/Footer/Component'
 import { Providers } from '@/providers'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { getSiteOriginURL } from '@/utilities/getURL'
 
 import './globals.css'
 import Navbar from '@/ui/components/navbar/Navbar'
-import { SEO_KEYWORDS, SITE_TITLE } from '@/utilities/constants/common'
-import { DEFAULT_META_DESCRIPTION, SITE_ORIGIN } from '@/utilities/seo'
-import EXPERIENCE_ITEMS from '@/ui/sections/home/Experiences/constants'
+import { SITE_TITLE } from '@/utilities/constants/common'
+import { DEFAULT_META_DESCRIPTION } from '@/utilities/seo'
 
 export const metadata: Metadata = {
-  metadataBase: SITE_ORIGIN,
+  metadataBase: getSiteOriginURL(),
   applicationName: SITE_TITLE,
   title: {
     template: `${SITE_TITLE} | %s`,
@@ -74,7 +74,6 @@ export const metadata: Metadata = {
       url: '/android-chrome-512x512.png',
     },
   ],
-  keywords: [...SEO_KEYWORDS, ...EXPERIENCE_ITEMS.map((item) => item.title)],
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

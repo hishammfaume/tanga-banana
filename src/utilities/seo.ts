@@ -2,23 +2,22 @@ import type { Metadata } from 'next'
 
 import {
   ADDRESS,
+  BUSINESS_COORDINATES,
+  BUSINESS_OPENING_HOURS,
   EMAILS,
   GOOGLE_MAPS_LINK,
   INSTAGRAM_LINK,
-  SEO_KEYWORDS,
+  PHONE_NUMBER,
   SITE_ALIASES,
   SITE_TITLE,
 } from '@/utilities/constants/common'
-import { getServerSideURL } from '@/utilities/getURL'
+import { getSiteOriginURL } from '@/utilities/getURL'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
-export const SITE_URL = getServerSideURL()
-export const SITE_ORIGIN = new URL(SITE_URL)
-
 export const DEFAULT_META_DESCRIPTION =
-  'Explore farm tours, coffee tasting, and nature experiences at Tanga Banana Garden in Tanga, Tanzania.'
+  'Book farm tours in Tanga for banana grove walks, coffee tasting, spice experiences, school visits, and peaceful countryside time at Tanga Banana Garden.'
 
-const DEFAULT_SOCIAL_IMAGE = '/android-chrome-512x512.png'
+export const DEFAULT_SOCIAL_IMAGE = '/android-chrome-512x512.png'
 
 type CreatePageMetadataArgs = {
   absoluteTitle?: string
@@ -28,30 +27,40 @@ type CreatePageMetadataArgs = {
   keywords?: string[]
 }
 
-type FaqItem = {
+export type FaqItem = {
   answer: string
   question: string
 }
 
-export const getAbsoluteURL = (path = '/') => new URL(path, SITE_ORIGIN).toString()
+const PLACEHOLDER_PHONE_VALUES = new Set(['1234567890', '0987654321'])
+
+const getCleanPhoneNumber = () => {
+  const digits = PHONE_NUMBER.contact.formatted.replace(/\D/g, '')
+
+  return PLACEHOLDER_PHONE_VALUES.has(digits) ? undefined : PHONE_NUMBER.contact.formatted
+}
+
+const getSchemaImageURLs = () => [getAbsoluteURL(DEFAULT_SOCIAL_IMAGE)]
+
+export const getAbsoluteURL = (path = '/') => new URL(path, getSiteOriginURL()).toString()
 
 export const createPageMetadata = ({
   absoluteTitle,
   title,
   description,
   path,
-  keywords = [],
+  keywords,
 }: CreatePageMetadataArgs): Metadata => {
-  const resolvedKeywords = Array.from(new Set([...SEO_KEYWORDS, ...keywords]))
   const socialTitle = `${SITE_TITLE} | ${title}`
+  const resolvedKeywords = keywords?.length ? Array.from(new Set(keywords)) : undefined
 
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : title,
     description,
     alternates: {
-      canonical: path,
+      canonical: getAbsoluteURL(path),
     },
-    keywords: resolvedKeywords,
+    ...(resolvedKeywords ? { keywords: resolvedKeywords } : {}),
     openGraph: mergeOpenGraph({
       title: socialTitle,
       description,
@@ -66,34 +75,80 @@ export const createPageMetadata = ({
   }
 }
 
-export const websiteStructuredData = {
+export const createWebsiteStructuredData = () => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': getAbsoluteURL('/#website'),
   name: SITE_TITLE,
   alternateName: [...SITE_ALIASES],
-  url: getAbsoluteURL('/'),
   description: DEFAULT_META_DESCRIPTION,
-  inLanguage: 'en',
+  inLanguage: 'en-TZ',
+  publisher: {
+    '@id': getAbsoluteURL('/#local-business'),
+  },
+  url: getAbsoluteURL('/'),
+})
+
+export const createLocalBusinessStructuredData = () => {
+  const telephone = getCleanPhoneNumber()
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': getAbsoluteURL('/#local-business'),
+    name: SITE_TITLE,
+    alternateName: [...SITE_ALIASES],
+    description: DEFAULT_META_DESCRIPTION,
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'TZ',
+      addressLocality: 'Tanga',
+      addressRegion: 'Tanga Region',
+      streetAddress: ADDRESS,
+    },
+    areaServed: ['Tanga', 'Tanzania'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: EMAILS.mail,
+      ...(telephone ? { telephone } : {}),
+    },
+    email: EMAILS.mail,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: BUSINESS_COORDINATES.latitude,
+      longitude: BUSINESS_COORDINATES.longitude,
+    },
+    hasMap: GOOGLE_MAPS_LINK,
+    image: getSchemaImageURLs(),
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [...BUSINESS_OPENING_HOURS.days],
+        opens: BUSINESS_OPENING_HOURS.opens,
+        closes: BUSINESS_OPENING_HOURS.closes,
+      },
+    ],
+    sameAs: [GOOGLE_MAPS_LINK, INSTAGRAM_LINK],
+    url: getAbsoluteURL('/'),
+    ...(telephone ? { telephone } : {}),
+  }
 }
 
-export const businessStructuredData = {
+export const createTouristAttractionStructuredData = () => ({
   '@context': 'https://schema.org',
   '@type': 'TouristAttraction',
-  name: SITE_TITLE,
-  alternateName: [...SITE_ALIASES],
+  '@id': getAbsoluteURL('/#tourist-attraction'),
   description: DEFAULT_META_DESCRIPTION,
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'TZ',
-    addressLocality: 'Tanga',
-    streetAddress: ADDRESS,
+  image: getSchemaImageURLs(),
+  isPartOf: {
+    '@id': getAbsoluteURL('/#local-business'),
   },
-  email: EMAILS.mail,
-  hasMap: GOOGLE_MAPS_LINK,
-  image: [getAbsoluteURL(DEFAULT_SOCIAL_IMAGE)],
+  name: SITE_TITLE,
   sameAs: [GOOGLE_MAPS_LINK, INSTAGRAM_LINK],
+  touristType: ['Families', 'School groups', 'Day trippers', 'Nature lovers'],
   url: getAbsoluteURL('/'),
-}
+})
 
 export const createBreadcrumbStructuredData = (
   items: Array<{ name: string; path: string }>,
@@ -108,7 +163,7 @@ export const createBreadcrumbStructuredData = (
   })),
 })
 
-export const createFaqStructuredData = (items: FaqItem[]) => ({
+export const createFaqStructuredData = (items: readonly FaqItem[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: items.map((item) => ({

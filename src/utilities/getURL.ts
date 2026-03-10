@@ -1,26 +1,31 @@
 import canUseDOM from './canUseDOM'
 
+const DEFAULT_LOCAL_ORIGIN = 'http://localhost:3000'
+
+const trimTrailingSlash = (value: string) => value.replace(/\/+$/, '')
+
+const getConfiguredOrigin = () => {
+  if (process.env.NEXT_PUBLIC_SERVER_URL) {
+    return trimTrailingSlash(process.env.NEXT_PUBLIC_SERVER_URL)
+  }
+
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return trimTrailingSlash(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  }
+
+  return undefined
+}
+
 export const getServerSideURL = () => {
-  return (
-    process.env.NEXT_PUBLIC_SERVER_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'http://localhost:3000')
-  )
+  return getConfiguredOrigin() || DEFAULT_LOCAL_ORIGIN
 }
 
 export const getClientSideURL = () => {
   if (canUseDOM) {
-    const protocol = window.location.protocol
-    const domain = window.location.hostname
-    const port = window.location.port
-
-    return `${protocol}//${domain}${port ? `:${port}` : ''}`
+    return trimTrailingSlash(window.location.origin)
   }
 
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  }
-
-  return process.env.NEXT_PUBLIC_SERVER_URL || ''
+  return getServerSideURL()
 }
+
+export const getSiteOriginURL = () => new URL(getServerSideURL())

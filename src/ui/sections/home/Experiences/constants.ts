@@ -10,25 +10,25 @@ const EXPERIENCE_ITEMS: {
   {
     title: 'Farm Tours',
     description:
-      'Walk through lush banana groves and spice . Learn about sustainable farming practices and the journey of our produce from farm to table.',
+      'Walk through banana and spice groves, learn how crops are grown, and enjoy a guided farm visit that feels close to the land.',
     icon: ICONS.map,
   },
   {
     title: 'Tanga Coffee',
     description:
-      'Taste the rich, authentic aroma of freshly brewed Tanga coffee straight from the tanga farmers.',
+      'Taste freshly prepared Tanga coffee straight from the Tanga farmers in a calm garden setting.',
     icon: ICONS.coffee,
   },
   {
     title: 'Cultural Walks',
     description:
-      'Experience the local culture and connect with the community during a peaceful guided walk.',
+      'Connect with village life, local stories, and nearby heritage on a peaceful guided cultural walk.',
     icon: ICONS.shoes,
   },
   {
     title: 'Fresh Air',
     description:
-      "Take a break from the city. Enjoy quality time with family surrounded by nature's tranquility.",
+      'Take a break from the city and enjoy a quiet family-friendly escape surrounded by greenery and fresh country air.',
     icon: ICONS.sun,
   },
 ]

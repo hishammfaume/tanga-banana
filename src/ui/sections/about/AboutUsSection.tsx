@@ -1,8 +1,11 @@
 import { Stack, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 import React from 'react'
 import HeroImage from '../experiences/hero-image'
 import AboutImage from '@/assets/Farm/Ideal.png'
+import NextLink from 'next/link'
+import { routes } from '@/routes'
 
 const AboutUsSection = () => {
   return (
@@ -15,7 +18,10 @@ const AboutUsSection = () => {
         alignContent="center"
         mb={4}
       >
-        <HeroImage src={AboutImage} alt="About Us Image" />
+        <HeroImage
+          src={AboutImage}
+          alt="Banana, coffee, and spice growing areas at Tanga Banana Garden in Tanga"
+        />
         <Stack spacing={3} textAlign="left">
           <Typography
             variant="h4"
@@ -33,15 +39,26 @@ const AboutUsSection = () => {
             blossomed into a diverse ecosystem of coffee, spices, and lush greenery.
           </Typography>
           <Typography variant="body2" align="left" color="grey.500">
-            We believe in the healing power of fresh country air and the joy of connecting with the
-            earth. Our garden is designed not just for growing crops, but for growing
-            experiences—offering families, students, and travelers a place to pause, breathe, and
-            learn.
+            Today, the farm welcomes families, student groups, and travelers who want more than a
+            quick stop. Visitors come here to slow down, ask questions, and understand the local
+            farming story behind each crop.
           </Typography>
           <Typography variant="body2" align="left" color="grey.500">
-            Here, organic farming isn&apos;t just a method; it&apos;s a way of life. From the
-            careful tending of spice groves to the traditional brewing of Tanga coffee, every aspect
-            of our farm celebrates the rich agricultural heritage of mainland Tanzania.
+            Our work is rooted in responsible growing and practical learning. If you want to see how
+            that turns into a visitor experience, explore our{' '}
+            <Link
+              component={NextLink}
+              href={routes.experiences}
+              color="primary.main"
+              underline="hover"
+            >
+              farm experiences
+            </Link>{' '}
+            or head to the{' '}
+            <Link component={NextLink} href={routes.contact} color="primary.main" underline="hover">
+              contact page
+            </Link>{' '}
+            to plan a visit.
           </Typography>
         </Stack>
       </Stack>
