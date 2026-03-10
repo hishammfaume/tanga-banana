@@ -4,7 +4,7 @@
 - Set `NEXT_PUBLIC_SERVER_URL` to the live custom domain with no trailing slash.
 - Confirm `robots.txt` and `sitemap.xml` resolve from the production domain and contain no `localhost` URLs.
 - Verify the homepage, about, experiences, and contact pages render the correct canonical, title, description, and JSON-LD.
-- Replace placeholder phone numbers in `src/utilities/constants/common.tsx` with live business contact details before publishing structured data that includes them.
+- Verify the phone numbers and business hours in `src/utilities/constants/common.tsx` are correct before publishing structured data that includes them.
 
 ## Search Console
 - Add the live custom domain to Google Search Console.
