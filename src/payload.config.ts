@@ -20,29 +20,20 @@ const defaultFromAddress = process.env.EMAIL_FROM_ADDRESS || 'info@tanga-garden.
 const defaultFromName = process.env.EMAIL_FROM_NAME || 'Tanga Banana'
 const mailtrapToken = process.env.MAILTRAP_TOKEN
 
-// const emailTransport = mailtrapToken
-//   ? nodemailer.createTransport(
-//       MailtrapTransport({
-//         token: mailtrapToken,
-//       }),
-//     )
-//   : nodemailer.createTransport({
-//       host: process.env.SMTP_HOST,
-//       port: Number(process.env.SMTP_PORT || 587),
-//       auth: {
-//         user: process.env.SMTP_USER,
-//         pass: process.env.SMTP_PASS,
-//       },
-//     })
-if (!mailtrapToken) {
-  throw new Error('MAILTRAP_TOKEN is required')
-}
-
-const emailTransport = nodemailer.createTransport(
-  MailtrapTransport({
-    token: mailtrapToken,
-  }),
-)
+const emailTransport = mailtrapToken
+  ? nodemailer.createTransport(
+      MailtrapTransport({
+        token: mailtrapToken,
+      }),
+    )
+  : nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    })
 
 export default buildConfig({
   admin: {
