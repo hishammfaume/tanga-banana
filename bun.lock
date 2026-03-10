@@ -8,9 +8,10 @@
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^7.3.8",
         "@mui/material": "^7.3.8",
+        "@neondatabase/serverless": "^1.0.2",
         "@payloadcms/admin-bar": "3.77.0",
         "@payloadcms/db-postgres": "3.77.0",
-        "@payloadcms/email-nodemailer": "^3.77.0",
+        "@payloadcms/email-nodemailer": "3.77.0",
         "@payloadcms/live-preview-react": "3.77.0",
         "@payloadcms/next": "3.77.0",
         "@payloadcms/plugin-form-builder": "3.77.0",
@@ -428,6 +429,8 @@
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@0.2.12", "", { "dependencies": { "@emnapi/core": "^1.4.3", "@emnapi/runtime": "^1.4.3", "@tybys/wasm-util": "^0.10.0" } }, "sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ=="],
 
+    "@neondatabase/serverless": ["@neondatabase/serverless@1.0.2", "", { "dependencies": { "@types/node": "^22.15.30", "@types/pg": "^8.8.0" } }, "sha512-I5sbpSIAHiB+b6UttofhrN/UJXII+4tZPAq1qugzwCwLIL8EZLV7F/JyHUrEIiGgQpEXzpnjlJ+zwcEhheGvCw=="],
+
     "@next/env": ["@next/env@15.4.11", "", {}, "sha512-mIYp/091eYfPFezKX7ZPTWqrmSXq+ih6+LcUyKvLmeLQGhlPtot33kuEOd4U+xAA7sFfj21+OtCpIZx0g5SpvQ=="],
 
     "@next/eslint-plugin-next": ["@next/eslint-plugin-next@15.4.11", "", { "dependencies": { "fast-glob": "3.3.1" } }, "sha512-WSY6ZwahlbR3JLfXrBezo2H4OmCeF2aFpguZuTkGV/n7+C10wYP17gxsCXbKVI6TpWmHZysp/AhwovUObPjfEA=="],
@@ -464,7 +467,7 @@
 
     "@payloadcms/drizzle": ["@payloadcms/drizzle@3.77.0", "", { "dependencies": { "console-table-printer": "2.12.1", "dequal": "2.0.3", "drizzle-orm": "0.44.7", "prompts": "2.4.2", "to-snake-case": "1.0.0", "uuid": "9.0.0" }, "peerDependencies": { "payload": "3.77.0" } }, "sha512-GhcTK7Hp6alDUukCI4C10xX646+9A+24iSnoefIFIWo7F8cApax5ITuUqcYtNTbP2q9Kpu8uFTJ7uddSlEnw3w=="],
 
-    "@payloadcms/email-nodemailer": ["@payloadcms/email-nodemailer@3.78.0", "", { "dependencies": { "nodemailer": "7.0.12" }, "peerDependencies": { "payload": "3.78.0" } }, "sha512-Mi467/0g/7sCCjn3u56Tt45r3ifTHPqmO/BM3Bh0fRm6vcpUzKyWw8UvKjYWW40rBIf7NLo2jR/xuuXmZiwTIw=="],
+    "@payloadcms/email-nodemailer": ["@payloadcms/email-nodemailer@3.77.0", "", { "dependencies": { "nodemailer": "7.0.12" }, "peerDependencies": { "payload": "3.77.0" } }, "sha512-1i4JSYAzQ+t2htdZAbfek7cslWXYV0YeLN9MoDI6LSbR8Q6Run6idPBLdEkBNLPc0NJFVWepj2IgXt72ifdbtw=="],
 
     "@payloadcms/graphql": ["@payloadcms/graphql@3.77.0", "", { "dependencies": { "graphql-scalars": "1.22.2", "pluralize": "8.0.0", "ts-essentials": "10.0.3", "tsx": "4.21.0" }, "peerDependencies": { "graphql": "^16.8.1", "payload": "3.77.0" }, "bin": { "payload-graphql": "bin.js" } }, "sha512-OcJxsf16u38mvgWLawGrGoN4pFlu34vE6gANYAL1TYapiHgO7NerVwMrg3GQHlriSlaI/K9naLbhXdLp8R/nYw=="],
 
