@@ -14,13 +14,13 @@ export const metadata = createPageMetadata({
   title: 'About the Farm and Our Story',
   description:
     'Learn about the story, philosophy, and hands-on learning experiences behind Tanga Banana Garden in Tanga, Tanzania.',
-  path: '/about/',
+  path: '/about',
   keywords: ['about Tanga Banana Garden', 'farm story Tanzania', 'organic farm philosophy'],
 })
 
 const breadcrumbStructuredData = createBreadcrumbStructuredData([
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about/' },
+  { name: 'About', path: '/about' },
 ])
 
 const AboutPage = () => {

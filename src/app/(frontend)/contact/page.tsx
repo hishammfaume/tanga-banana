@@ -20,13 +20,13 @@ export const metadata = createPageMetadata({
   title: 'Contact and Book a Farm Visit',
   description:
     'Contact Tanga Banana Garden to ask questions, get directions, or book your farm tour and coffee tasting in Tanga, Tanzania.',
-  path: '/contact/',
+  path: '/contact',
   keywords: ['contact Tanga Banana Garden', 'book farm tour Tanga', 'Tanga farm location'],
 })
 
 const breadcrumbStructuredData = createBreadcrumbStructuredData([
   { name: 'Home', path: '/' },
-  { name: 'Contact', path: '/contact/' },
+  { name: 'Contact', path: '/contact' },
 ])
 
 const faqStructuredData = createFaqStructuredData([...CONTACT_FAQS])

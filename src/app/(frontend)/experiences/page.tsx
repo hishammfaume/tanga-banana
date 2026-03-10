@@ -10,13 +10,13 @@ export const metadata = createPageMetadata({
   title: 'Farm Experiences in Tanga',
   description:
     'Discover coffee tasting, banana grove walks, spice experiences, and countryside moments at Tanga Banana Garden.',
-  path: '/experiences/',
+  path: '/experiences',
   keywords: ['farm experiences Tanga', 'banana grove walk', 'coffee tasting tour Tanzania'],
 })
 
 const breadcrumbStructuredData = createBreadcrumbStructuredData([
   { name: 'Home', path: '/' },
-  { name: 'Experiences', path: '/experiences/' },
+  { name: 'Experiences', path: '/experiences' },
 ])
 
 const ExperiencesPage = () => {
