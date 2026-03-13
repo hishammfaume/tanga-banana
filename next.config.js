@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 import redirects from './redirects.js'
 
@@ -10,6 +11,8 @@ const SITE_ORIGIN = trimTrailingSlash(
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : process.env.__NEXT_PRIVATE_ORIGIN || 'http://localhost:3000'),
 )
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -38,4 +41,4 @@ const nextConfig = {
   redirects,
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withNextIntl(withPayload(nextConfig, { devBundleServerPackages: false }))

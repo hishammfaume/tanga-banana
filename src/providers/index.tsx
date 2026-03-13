@@ -16,7 +16,7 @@ export const Providers: React.FC<{
           <BookingModalProvider>{children}</BookingModalProvider>
         </SettingsProvider>
       </NotistackProvider>
-      <GlobalStyles />
+      <GlobalStyles />{' '}
     </ThemeProvider>
   )
 }

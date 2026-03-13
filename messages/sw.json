@@ -1,0 +1,441 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Tanga Banana Garden | Ziara za Shamba Tanga, Tanzania",
+      "description": "Tembelea Tanga Banana Garden – shamba la kazi la ndizi, kahawa na viungo Tanga, Tanzania. Ziara za shamba zinazofaa familia, shule na wasafiri. Agritourism Tanzania. Fungua kila siku.",
+      "keywords": "ziara ya shamba Tanga, agritourism Tanzania, ziara za shamba Tanzania, uzoefu wa shamba Tanzania, ziara inayoongozwa ya shamba Tanga, tembelea mashamba Tanga Tanzania, ziara ya kilimo Tanzania, hifadhi nafasi ziara shamba Tanga Tanzania, ziara ya shamba la kikaboni Tanga, shamba la ndizi Tanga, uzoefu wa kahawa Tanzania, ziara ya viungo Tanga Tanzania, eco farm Tanga Tanzania, ziara ya eco farm Tanzania, utalii wa kilimo Tanzania, utalii endelevu Tanzania, kukaa shambani Tanga Tanzania, kukaa shambani Tanzania, utalii wa vijijini Tanzania, utalii wa jamii Tanzania, uzoefu wa chakula cha shamba Tanzania, matembezi ya familia Tanga, shule ziara Tanga Tanzania, mapumziko ya mashamba Tanga Tanzania, kukaa East Africa shambani, mapumziko ya eco Tanzania, utalii wa pwani Tanzania, mambo ya kufanya Tanga Tanzania, sehemu za kutembelea Tanga, sehemu nzuri ya picnic Tanga, sehemu za kutembea Tanga, mahali pazuri pa kutembelea Tanga, safari ya siku Tanga, pumziko la mashamba Tanga"
+    },
+    "experiences": {
+      "title": "Uzoefu wa Shambani Tanga | Kahawa, Viungo na Matembezi ya Utamaduni – Tanga Banana Garden",
+      "description": "Tembelea shamba la ndizi, onja kahawa ya Tanga, fanya matembezi ya utamaduni na pumzika bustanini. Uzoefu wa agritourism kwa familia, shule na wasafiri Tanga, Tanzania.",
+      "keywords": "uzoefu wa shamba Tanga Tanzania, kuonja kahawa ya Tanga, ziara ya viungo Tanga Tanzania, matembezi ya utamaduni Tanga, uzoefu wa agritourism Tanzania, eco farm tour Tanzania, uzoefu wa chakula cha shamba Tanga, ziara ya kilimo Tanzania, uzoefu wa kilimo endelevu Tanzania, ziara ya shamba la kikaboni Tanga, kilimo cha vitendo Tanzania, kilimo cha asili Tanzania visit, ziara ya matunda ya tropiki Tanzania, uzoefu wa chakula cha ndani Tanzania, uzoefu wa kilimo na wakulima Tanzania, shule ziara shamba Tanga, familia shamba Tanzania, Mapango ya Amboni Tanga, Magofu ya Tongoni Tanga, utalii wa jamii Tanzania, uzoefu wa utamaduni wa shamba Tanzania, kukaa shambani eco Tanzania"
+    },
+    "about": {
+      "title": "Kuhusu Tanga Banana Garden | Shamba la Kikaboni la Endelevu Tanga, Tanzania",
+      "description": "Jifunze kuhusu Tanga Banana Garden – shamba la kikaboni 100% la ndizi, kahawa na viungo Tanga, Tanzania. Gundua hadithi yetu, falsafa ya kilimo na agritourism endelevu.",
+      "keywords": "kuhusu Tanga Banana Garden, shamba la kikaboni Tanga Tanzania, kukaa shambani la kikaboni Tanzania, kilimo endelevu Tanga, utalii endelevu Tanzania, shamba la jamii Tanzania, utalii wa jamii Tanzania, eco farm Tanga, ziara ya agroecology Afrika, mapumziko ya eco farm Tanzania, likizo ya eco farm Tanzania, uzoefu wa kijiji halisi Tanzania, mapumziko ya vijijini Tanzania, likizo ya mashamba Tanzania, ndizi kahawa viungo Tanzania, agritourism Tanzania, utalii wa vijijini Tanzania, kilimo cha mazingira Tanzania, ziara ya shamba la nazi Tanzania, ziara ya shamba la korosho Tanzania, uzoefu wa shamba la mango Tanzania, ziara ya shamba la matunda ya tropiki Tanzania"
+    },
+    "contact": {
+      "title": "Mawasiliano na Mwelekeo | Hifadhi Nafasi ya Ziara ya Shamba Tanga – Tanga Banana Garden",
+      "description": "Wasiliana na Tanga Banana Garden ili kuhifadhi nafasi ya ziara ya shamba, uzoefu wa kahawa au ziara ya shule Tanga, Tanzania. Piga simu, WhatsApp au tuma ujumbe. Wazi kila siku 8am–6pm.",
+      "keywords": "hifadhi nafasi ziara shamba Tanga Tanzania, kuhifadhi ziara shamba Tanga Tanzania, mawasiliano Tanga Banana Garden, kuhifadhi ziara shamba Tanga, mwelekeo Tanga Banana Garden, tembelea shamba Tanga Tanzania, tembelea mashamba ya ndani Tanga, hifadhi nafasi shule Tanga, familia ziara shamba Tanzania, WhatsApp ziara shamba Tanga, bei ya ziara shamba Tanga, Ungwana Tanga shamba, hifadhi uzoefu agritourism Tanzania, hifadhi ziara shamba inayoongozwa Tanga, nunua mazao ya kikaboni Tanga, mazao mapya ya shamba Tanga Tanzania, bidhaa za chakula cha ndani Tanga"
+    }
+  },
+
+  "nav": {
+    "home": "Nyumbani",
+    "experiences": "Uzoefu",
+    "about": "Kuhusu Sisi",
+    "contact": "Wasiliana Nasi",
+    "book": "Hifadhi Nafasi ya Ziara",
+    "phone": "0702 666773",
+    "languageSwitch": "English"
+  },
+
+  "home": {
+    "hero": {
+      "headline": "Pumzika Katika Bustani ya Asili Tanga",
+      "subheadline": "Tembelea shamba la ndizi, kahawa na viungo Tanga – mazingira ya kijani kibichi na hewa safi yanayokufanya upumzike mbali na msongamano wa mjini.",
+      "cta": "Hifadhi Nafasi ya Ziara"
+    },
+    "about": {
+      "label": "Kuhusu Sisi",
+      "heading": "Shamba la Kazi la Ndizi, Kahawa na Viungo Tanga",
+      "body": "Tanga Banana Garden ni shamba la kazi la ndizi, kahawa na viungo katika mji wa Tanga, Tanzania. Tunakukaribisha upumzike, uvume hewa safi, na urudi kuungana na asili katika mazingira ya utulivu na urafiki.",
+      "features": {
+        "daytrip": "Safari rahisi ya siku kutoka mjini Tanga",
+        "groves": "Mashamba ya ndizi, kahawa na viungo",
+        "family": "Inafaa familia na vikundi vya shule"
+      },
+      "learnMore": "Jifunze Zaidi Kuhusu Sisi"
+    },
+    "values": {
+      "families": {
+        "title": "Inafaa Familia na Wapenda Asili",
+        "body": "Njia salama za kutembea, vituo vya kupumzika vyenye kivuli, na wenyeji wa ukarimu hufanya hii kuwa safari rahisi ya siku kwa familia, wasafiri na vikundi vya shule."
+      },
+      "organic": {
+        "title": "Imejengwa juu ya Kilimo cha Kikaboni",
+        "body": "Tunalima ndizi, kahawa na viungo kwa kutumia mbinu za kilimo zinazoiheshimu ardhi, kusaidia bayoanuwai, na kuunda ujifunzaji wenye maana kwa wageni."
+      }
+    },
+    "experiences": {
+      "heading": "Uzoefu wa Kweli wa Shamba Tanga",
+      "subheading": "Chunguza ziara za shamba zinazoongozwa, kahawa safi, matembezi ya utamaduni, na maeneo ya utulivu yanayofanya Tanga Banana Garden kuwa safari ya siku isiyosahaulika.",
+      "farmTours": {
+        "title": "Ziara za Shamba",
+        "body": "Tembea katika mashamba ya ndizi na viungo, jifunze jinsi mazao yanavyolimwa, na ufurahie ziara ya shamba inayokufanya uhisi karibu na ardhi.",
+        "link": "Jifunze zaidi"
+      },
+      "coffee": {
+        "title": "Kahawa ya Tanga",
+        "body": "Onja kahawa safi ya Tanga iliyoandaliwa na wakulima wa Tanga moja kwa moja katika mazingira ya utulivu bustanini.",
+        "link": "Jifunze zaidi"
+      },
+      "culturalWalks": {
+        "title": "Matembezi ya Utamaduni",
+        "body": "Ungana na maisha ya kijiji, hadithi za ndani, na urithi wa karibu katika matembezi ya utulivu yanayoongozwa.",
+        "link": "Jifunze zaidi"
+      },
+      "freshAir": {
+        "title": "Hewa Safi",
+        "body": "Pumzika mbali na kelele za jiji na ufurahie mapumziko ya familia yenye utulivu umezingirwa na mimea na hewa safi ya mashamba.",
+        "link": "Jifunze zaidi"
+      }
+    },
+    "getaway": {
+      "label": "Pumziko Lako Bora",
+      "heading": "Safari Bora ya Siku",
+      "body": "Iwe unafanya mpango wa matembezi ya familia, ziara ya shule, au safari ya utulivu ya siku, Tanga Banana Garden inatoa ziara ya shamba Tanga inayofikiwa kwa urahisi na yenye kahawa, utamaduni, na mazingira mazuri ya mashamba.",
+      "features": {
+        "directions": "Safari rahisi ya siku kutoka mjini Tanga na mwelekeo rahisi",
+        "guided": "Uzoefu wa shamba la ndizi, kahawa na viungo unaongozwa",
+        "school": "Mazingira ya kujifunza yanayofaa familia na shule",
+        "rest": "Hewa safi, maeneo ya kupumzika yenye kivuli, na wakati wa kupumzika"
+      },
+      "cta": "Uliza kuhusu uhifadhi wa nafasi, ziara za shule, na mwelekeo"
+    },
+    "keywordSection": {
+      "heading": "Moja ya Sehemu Bora za Kutembelea Tanga",
+      "body": "Tanga Banana Garden ni shamba la kikaboni la kazi na moja ya sehemu bora za kutembelea Tanga, Tanzania. Iwe unatafuta sehemu nzuri ya picnic karibu na mji wa Tanga, matembezi ya familia, safari ya shule yenye kilimo cha vitendo, au pumziko la mashamba kutoka mjini – shamba letu linatoa ziara za agritourism zinazoongozwa, kahawa safi ya Tanga, matembezi ya utamaduni karibu na Mapango ya Amboni na Magofu ya Tongoni, na maeneo ya kijani ya utulivu ya kupumzika.",
+      "highlights": {
+        "h1": "Ziara za shamba karibu na mji wa Tanga – agritourism Tanzania",
+        "h2": "Kuonja kahawa ya Tanga na wakulima wa ndani",
+        "h3": "Matembezi ya utamaduni karibu na Mapango ya Amboni na Magofu ya Tongoni",
+        "h4": "Sehemu ya picnic na maeneo ya kupumzika yenye kivuli Tanga",
+        "h5": "Ziara za shule na ziara za elimu za kilimo Tanzania",
+        "h6": "Eco farm na utalii endelevu Tanga",
+        "h7": "Mambo ya kufanya Tanga kwa familia na wasafiri",
+        "h8": "Uzoefu wa chakula cha shamba Tanzania"
+      }
+    },
+    "faq": {
+      "heading": "Panga Ziara Yako ya Kwanza ya Shamba Tanga",
+      "label": "Maswali Yanayoulizwa Mara Kwa Mara",
+      "q1": {
+        "question": "Nitatarajia nini katika ziara ya shamba Tanga?",
+        "answer": "Ziara ya Tanga Banana Garden inajumuisha matembezi katika mashamba ya ndizi, kahawa safi, maarifa ya kilimo cha viungo, na wakati wa utulivu katika shamba la kazi karibu na mji wa Tanga."
+      },
+      "q2": {
+        "question": "Je, Tanga Banana Garden inafaa familia na ziara za shule?",
+        "answer": "Ndiyo. Tunakaribisha familia, vikundi vya wanafunzi, na wageni wa kwanza wanaotaka utangulizi salama, wa vitendo wa kilimo, mazao ya ndani, na kujifunza nje ya darasa."
+      },
+      "q3": {
+        "question": "Je, shamba liko mbali kiasi gani na mjini Tanga?",
+        "answer": "Shamba liko karibu na mji wa Tanga, na kuifanya kuwa safari ya siku inayofaa kwa wageni wanaotaka hewa safi, uzoefu wa ndani, na mapumziko ya utulivu ya mashamba."
+      },
+      "q4": {
+        "question": "Je, Tanga Banana Garden ni sehemu nzuri ya picnic karibu na Tanga?",
+        "answer": "Ndiyo – bustani ina maeneo ya kupumzika yenye kivuli, nafasi za wazi za kijani, na hewa safi ya mashamba, na kuifanya kuwa moja ya sehemu nzuri zaidi za picnic na kupumzika karibu na mji wa Tanga."
+      },
+      "q5": {
+        "question": "Ni sehemu zipi bora za kutembelea Tanga?",
+        "answer": "Tanga Banana Garden ni moja ya sehemu bora za kutembelea Tanga pamoja na Mapango ya Amboni, Magofu ya Tongoni, na Pwani ya Tanga. Tunatoa uzoefu wa kipekee wa agritourism – ziara za shamba zinazoongozwa, kuonja kahawa ya Tanga, na matembezi ya utamaduni yote katika ziara moja."
+      },
+      "q6": {
+        "question": "Je, mnatoa kukaa shambani au malazi usiku Tanga?",
+        "answer": "Kwa sasa tunazingatia ziara za siku zinazoongozwa na ziara za shamba Tanga. Wasiliana nasi kujadili mpango wa vikundi au ziara za muda mrefu."
+      }
+    },
+    "cta": {
+      "heading": "Uko Tayari Kuhifadhi Nafasi ya Ziara ya Shamba Tanga?",
+      "body": "Panga matembezi ya familia, ziara ya kahawa, au safari ya shule na utumie muda katika shamba la kazi la ndizi, kahawa na viungo karibu na mji wa Tanga.",
+      "button": "Hifadhi Nafasi ya Ziara"
+    }
+  },
+
+  "experiences": {
+    "hero": {
+      "headline": "Uzoefu wa Shamba Tanga",
+      "subheadline": "Tembea katika mashamba ya ndizi na viungo, onja kahawa safi ya Tanga, jifunze kutoka kwa shamba la kazi, na ufurahie siku ya utulivu karibu na mji wa Tanga."
+    },
+    "intro": {
+      "heading": "Chunguza kila uzoefu kupitia hadithi za kina.",
+      "body": "Kila uzoefu umeundwa kusaidia wageni kuelewa shamba, kufurahia mandhari, na kuchagua mchanganyiko sahihi wa kujifunza, utamaduni, na burudani kwa ziara yao."
+    },
+    "farmTours": {
+      "label": "Elimu",
+      "number": "01",
+      "heading": "Ziara za Shamba na Kujifunza kwa Vitendo Tanga",
+      "intro": "Ziara inayoongozwa ya shamba Tanga inayochanganya kujifunza kwa vitendo, njia za utulivu za kutembea, na muda wa karibu na mazao ya ndizi, kahawa na viungo.",
+      "body": "Zaidi ya matembezi rahisi, uzoefu huu unafanya kazi kama darasa la nje. Familia na vikundi vya shule wanaweza kuona jinsi mazao yanavyotunzwa, kuuliza maswali ya kilimo cha kikaboni, na kuelewa jinsi shamba la kazi karibu na mji wa Tanga linavyounda vyakula na uzoefu muhimu wa wageni.",
+      "features": {
+        "f1": "Masomo ya kilimo ya vitendo kwa vikundi vya shule na wanafunzi",
+        "f2": "Kujifunza kwa mwingiliano kwa watoto na familia",
+        "f3": "Tazama jinsi ndizi, kahawa na viungo vinavyolimwa",
+        "f4": "Pata maarifa ya vitendo ya mbinu za kilimo cha kikaboni"
+      },
+      "tags": ["Elimu", "Mwingiliano", "Inafaa Familia"]
+    },
+    "coffee": {
+      "label": "Halisi",
+      "number": "02",
+      "heading": "Uzoefu wa Kuonja Kahawa ya Tanga",
+      "intro": "Furahia harufu ya kahawa safi ya Tanga iliyoandaliwa bustanini na wakulima wa ndani wanaojua ardhi na mchakato.",
+      "body": "Huu ni uzoefu wa kahawa wa polepole uliojengwa kuzunguka hadithi na maandalizi. Tazama kuoka na kutengeneza, jifunze jinsi kahawa inavyofaa kwenye shamba, na ufurahie kikombe kinachofanya ziara ihisi imejikita Tanga.",
+      "features": {
+        "f1": "Kahawa iliyoandaliwa na kutengenezwa na wakulima wa ndani",
+        "f2": "Pata harufu ya kweli ya kahawa ya kikaboni ya Tanga",
+        "f3": "Jifunze mbinu za kimapokeo za kuoka na kutengeneza",
+        "f4": "Furahia kikombe cha kahawa safi katika mazingira ya utulivu ya bustani"
+      },
+      "tags": ["Halisi", "Inaandaliwa Ndani", "Muunganiko wa Utamaduni"]
+    },
+    "culturalWalks": {
+      "label": "Utamaduni",
+      "number": "03",
+      "heading": "Matembezi ya Utamaduni na Asili",
+      "intro": "Panua ziara yako zaidi ya shamba ili kugundua maisha ya kijiji, urithi wa ndani, na vivutio vya karibu kama vile Mapango ya Amboni na Magofu ya Tongoni.",
+      "body": "Matembezi haya yanayoongozwa husaidia wageni kuunganisha shamba na mkoa mpana wa Tanga. Inaunganisha historia ya ndani, hadithi za jamii, na upande wa utulivu wa usafiri kwa wageni wanaotaka zaidi ya orodha ya kawaida ya vivutio.",
+      "features": {
+        "f1": "Tembelea maeneo ya kihistoria ya ndani ikiwa ni pamoja na Mapango ya Amboni na Magofu ya Tongoni",
+        "f2": "Tembea kijijini na kukutana na wanajamii",
+        "f3": "Sikiliza hadithi kuhusu historia na utamaduni wa ardhi",
+        "f4": "Mchanganyiko wa asili, historia na maisha ya kila siku"
+      },
+      "tags": ["Utamaduni", "Historia", "Inazingatia Jamii"]
+    },
+    "freshAir": {
+      "label": "Hewa Safi",
+      "number": "04",
+      "heading": "Hewa Safi na Kupumzika Bustanini",
+      "intro": "Toka mbali na kelele za jiji na utumie muda katika mazingira ya utulivu, ya oksijeni nyingi yanayolipa usafiri wa polepole.",
+      "body": "Wakati mwingine uzoefu wa thamani zaidi ni nafasi rahisi ya kupumua. Bustani inatoa kivuli, pembe za utulivu, na maeneo salama ya wazi – sehemu nzuri ya picnic na kupumzika karibu na mji wa Tanga.",
+      "features": {
+        "f1": "Pumua hewa safi ya mashamba mbali na jiji",
+        "f2": "Furahia mazingira ya utulivu kwa ajili ya kupumzika kiakili",
+        "f3": "Maeneo salama ya wazi ya kijani kwa watoto kucheza",
+        "f4": "Bora kwa mapumziko ya haraka ya jiji ili kujaza nguvu"
+      },
+      "tags": ["Hewa Safi", "Afya ya Akili", "Kupumzika"]
+    },
+    "keywordSection": {
+      "heading": "Agritourism Tanzania – Kwa Nini Kuchagua Tanga Banana Garden",
+      "body": "Tanga Banana Garden ni moja ya maeneo bora ya agritourism Tanzania pwani ya Bahari ya Hindi. Tofauti na mbuga kubwa za wanyamapori au mapumziko ya pwani, tunatoa uzoefu wa karibu, wa vitendo wa shamba karibu na mji wa Tanga. Wageni wanaweza kuchunguza kilimo cha kikaboni, kuonja kahawa ya Tanga, kujiunga na matembezi ya utamaduni karibu na Mapango ya Amboni, na kufurahia uzoefu wa chakula cha shamba unaowaunganisha watu na ardhi na jamii ya ndani.",
+      "keywordGroups": {
+        "bookingIntent": "Hifadhi nafasi ziara shamba Tanga Tanzania · Tanga agritourism tours · uzoefu wa shamba Tanzania · ziara inayoongozwa ya shamba Tanga · ziara ya kilimo Tanzania · ziara ya viungo Tanga Tanzania · ziara ya shamba la kikaboni Tanga · tembelea mashamba Tanga Tanzania",
+        "ecoAgri": "Kukaa shambani la kikaboni Tanzania · kilimo asili Tanzania visit · ziara ya matunda ya tropiki Tanzania · ziara ya viungo Tanzania · uzoefu wa chakula cha shamba Tanzania · utalii wa kilimo Afrika · uzoefu wa kilimo endelevu Tanzania · ziara ya agroecology Afrika · mapumziko ya eco farm Tanzania",
+        "highVolumeTanzania": "Kukaa shambani Tanzania · agritourism Tanzania · utalii wa kilimo Tanzania · uzoefu wa shamba Zanzibar · utalii wa vijijini Tanzania · utalii endelevu Tanzania · eco utalii Tanzania · ziara ya utamaduni Tanzania · utalii wa jamii Tanzania",
+        "locationBased": "Kukaa shambani Tanga Tanzania · utalii wa vijijini Tanga · eco farm Tanga Tanzania · pumziko la mashamba Tanga · utalii endelevu Tanga · kukaa shambani East Africa · mapumziko ya eco Tanzania pwani ya Bahari ya Hindi · utalii wa pwani Tanzania · utalii wa kilimo karibu na Muheza · ziara za shamba Usambara · ziara za shamba karibu na Tanga · mambo ya kufanya Tanga Tanzania mashamba",
+        "experienceCombo": "Ziara ya shamba na kuonja chakula cha ndani Tanzania · uzoefu wa chakula cha shamba Tanga · ziara ya shamba na kununua mazao mapya Tanzania · uzoefu wa kilimo na wakulima Tanzania · uzoefu wa kukaa shambani Tanga Tanzania",
+        "ecoAndCultural": "Utalii wa kilimo endelevu Tanzania · eco farm tour Tanzania · uzoefu wa utamaduni wa shamba Tanzania · utalii wa vijijini Tanga Tanzania · utalii wa kilimo wa jamii Tanzania",
+        "gapYear": "Gap year Tanzania · kujitolea shambani Tanzania · kujitolea Afrika shambani · kazi ya kubadilishana shambani Tanzania · kujitolea kilimo endelevu Afrika · internship ya kilimo Tanzania · mradi wa kujitolea Zanzibar",
+        "experienceSeeker": "Mambo ya kipekee ya kufanya Tanzania · mbali na njia iliyopigwa Tanzania · uzoefu wa siri Tanzania · uzoefu wa ndani Tanzania · utalii wa jamii Tanzania"
+      }
+    },
+    "faq": {
+      "label": "Maswali Yanayoulizwa Mara Kwa Mara",
+      "heading": "Chagua uzoefu unaofaa kwa ziara yako",
+      "q1": {
+        "question": "Ni uzoefu gani unapatikana katika Tanga Banana Garden?",
+        "answer": "Wageni wanaweza kuhifadhi nafasi ya ziara za shamba, uzoefu wa kahawa, matembezi ya utamaduni na asili, na ziara za kufurahia bustani ambazo ni rahisi kuchanganya katika siku moja Tanga."
+      },
+      "q2": {
+        "question": "Je, uzoefu huo unafaa kwa vikundi vya shule?",
+        "answer": "Ndiyo. Ziara ya shamba na uzoefu wa kujifunza kwa vitendo ni muhimu sana kwa shule na vikundi vya wanafunzi vinavyotafuta kujifunza kilimo cha vitendo karibu na mji wa Tanga."
+      },
+      "q3": {
+        "question": "Ninapaswa kupanga muda gani kwa ziara?",
+        "answer": "Wageni wengi wanapanga nusu siku au safari ya siku nzima ili waweze kutembea shambani, kufurahia kahawa, kuuliza maswali, na kutumia wakati wa utulivu bustanini bila haraka."
+      },
+      "q4": {
+        "question": "Je, hii ni uzoefu mzuri wa agritourism Tanzania?",
+        "answer": "Bila shaka. Tanga Banana Garden ni moja ya mashamba machache ya agritourism ya kazi Tanga yanayotoa uzoefu unaongozwa, elimu ya kilimo cha kikaboni, kuonja kahawa ya Tanga, na matembezi ya utamaduni – yote katika ziara moja."
+      },
+      "q5": {
+        "question": "Je, ninaweza kufanya uzoefu wa chakula cha shamba katika Tanga Banana Garden?",
+        "answer": "Ndiyo – unaweza kutembea shambani, kujifunza jinsi mazao yanavyolimwa, na kuonja kahawa safi ya Tanga na mazao moja kwa moja kutoka ardhini, na kuufanya kuwa uzoefu wa kweli wa chakula cha shamba Tanzania."
+      },
+      "q6": {
+        "question": "Je, ninaweza kujitolea au kufanya internship katika shamba la kikaboni Tanzania?",
+        "answer": "Tunakaribisha maombi kutoka kwa wanafunzi, wasafiri wa gap year, na wanafunzi wa kilimo wanaopenda kilimo endelevu, kazi ya jamii, na agritourism Tanzania. Wasiliana nasi kujadili fursa."
+      }
+    }
+  },
+
+  "about": {
+    "hero": {
+      "headline": "Kuhusu Tanga Banana Garden – Hadithi Yetu na Falsafa ya Shamba",
+      "subheadline": "Gundua jinsi Tanga Banana Garden ilivyokua kuwa shamba la karibu la ndizi, kahawa na viungo ambapo wageni wanaweza kujifunza kuhusu kilimo endelevu na kufurahia muda wenye maana nje ya nyumba."
+    },
+    "story": {
+      "heading": "Zaidi ya Shamba tu",
+      "body1": "Tanga Banana Garden ilianza na maono rahisi: kuunda makimbilio ya utulivu ndani ya Mji wa Tanga ambapo asili inastawi. Kilichoanza kama ulimaji mdogo wa ndizi kimechanua kuwa mfumo ikolojia tofauti wa kahawa, viungo na mimea ya kijani kibichi.",
+      "body2": "Leo, shamba linakaribisha familia, vikundi vya wanafunzi, na wasafiri wanaotaka zaidi ya kituo cha haraka. Wageni wanakuja hapa kupunguza kasi, kuuliza maswali, na kuelewa hadithi ya kilimo ya ndani nyuma ya kila zao."
+    },
+    "philosophy": {
+      "heading": "Falsafa Yetu",
+      "subheading": "Tumejitolea kulinda mazingira huku tukitoa uzoefu wa kukumbukwa kwa wageni wetu.",
+      "organic": {
+        "title": "100% Kikaboni",
+        "body": "Tunafuata madhubuti kanuni za kilimo cha kikaboni. Hakuna kemikali kali – mzunguko wa ukuaji wa asili tu unaolinda udongo wetu na afya yako."
+      },
+      "community": {
+        "title": "Inazingatia Jamii",
+        "body": "Tumejitolea kusaidia wakulima wa ndani na kukuza kilimo endelevu Tanga."
+      },
+      "sanctuary": {
+        "title": "Hifadhi ya Asili",
+        "body": "Mashamba yetu yanatoa mapumziko ya haraka ya jiji ambapo hewa safi na utulivu ni wingi, bora kwa kupumzika kiakili."
+      }
+    },
+    "learning": {
+      "heading": "Uzoefu wa Kujifunza",
+      "body": "Tanga Banana Garden ni mazingira ya kujifunza kwa vitendo kwa watoto, familia, vikundi vya shule, na wasafiri wa kijisomea wanaotaka kuelewa kilimo kupitia mazao halisi, udongo wa kweli, na mazungumzo yanayoongozwa."
+    },
+    "keywordSection": {
+      "heading": "Agritourism Endelevu Tanga, Tanzania",
+      "body": "Tanga Banana Garden imejitolea kwa kilimo endelevu na agritourism inayozingatia jamii Tanga. Kama shamba la kikaboni linalolima ndizi, kahawa, viungo na mazao mapya ya tropiki, tunawakilisha uzoefu wa kweli wa eco farm pwani ya Bahari ya Hindi ya Tanzania – unaounganisha utalii wa vijijini, muunganiko wa utamaduni, na kujifunza kilimo kwa vitendo.",
+      "cropHeading": "Tunalima Nini",
+      "cropBody": "Shamba letu linalima ndizi, kahawa, viungo na matunda ya tropiki ya msimu. Mkoa mpana wa Tanga pia unajulikana kwa nazi, mango, sisal na korosho – na kuufanya Tanga kuwa moja ya maeneo tajiri zaidi ya kilimo ya Tanzania kwa agritourism na ziara za shamba.",
+      "cropKeywords": "Shamba la ndizi Tanga · shamba la kahawa Tanzania · shamba la viungo Tanga · ziara ya shamba la nazi Tanzania · uzoefu wa shamba la mango Tanzania · ziara ya shamba la matunda ya tropiki Tanzania · ziara ya shamba la sisal Tanzania · ziara ya shamba la korosho Tanzania · mazao ya kikaboni ya shamba Tanga",
+      "retreatHeading": "Pumziko la Mashamba Karibu na Mji wa Tanga",
+      "retreatBody": "Unatafuta mapumziko ya eco farm Tanzania, uzoefu wa kijiji halisi, au mapumziko ya vijijini karibu na Tanga? Tanga Banana Garden ni shamba la kazi linaloatoa yote haya – likizo ya kweli ya eco farm Tanzania inayokupeleka mbali na njia iliyopigwa bila kusafiri mbali na mji."
+    },
+    "gallery": {
+      "heading": "Maisha Kandoni ya Bustani",
+      "subheading": "Mwanga wa maeneo, mazao na nyakati zinazounda ziara ya Tanga Banana Garden.",
+      "bananaGroves": {
+        "label": "Mavuno Mapya",
+        "title": "Mashamba ya Ndizi",
+        "body": "Tembea katika safu za miti ya ndizi yenye kivuli na ufurahie mdundo wa utulivu wa shamba."
+      },
+      "learningTrails": {
+        "label": "Ziara za Vitendo",
+        "title": "Njia za Kujifunza",
+        "body": "Kila ziara inafungua mtazamo wa karibu wa kupanda, kuonja, na kujifunza kutoka ardhini."
+      },
+      "coffeeMoments": {
+        "label": "Harufu ya Tanga",
+        "title": "Nyakati za Kahawa",
+        "body": "Pumzika na kahawa safi na ugundua hadithi za shamba zinazoshirikiwa na wakulima wa ndani."
+      },
+      "gardenCalm": {
+        "label": "Upumziko wa Asili",
+        "title": "Utulivu wa Bustani",
+        "body": "Pembe za utulivu, kivuli baridi, na nafasi ya wazi ya kijani hufanya bustani ihisi kama mapumziko."
+      },
+      "spiceColours": {
+        "label": "Ladha ya Ndani",
+        "title": "Rangi za Viungo",
+        "body": "Ona, nusa na onja viungo vinavyoipa bustani uhai zaidi ya mashamba."
+      },
+      "farmViews": {
+        "label": "Hewa Wazi",
+        "title": "Mandhari ya Shamba",
+        "body": "Njia pana na mimea ya kijani kibichi huunda aina ya mandhari inayokualika ukae muda mrefu."
+      }
+    },
+    "faq": {
+      "label": "Maswali Yanayoulizwa Mara Kwa Mara",
+      "heading": "Elewa shamba kabla ya kutembelea",
+      "q1": {
+        "question": "Tanga Banana Garden inalima nini?",
+        "answer": "Shamba linalima ndizi, kahawa, viungo na mazao mengine mapya ya tropiki katika mazingira ya bustani ya kazi ambayo wageni wanaweza kuchunguza katika ziara zinazoongozwa."
+      },
+      "q2": {
+        "question": "Uzoefu wa shamba umeundwa kwa nani?",
+        "answer": "Uzoefu wetu umeundwa kwa familia, vikundi vya wanafunzi, wasafiri, na mtu yeyote anayependa kilimo endelevu, chakula cha ndani, na siku ya utulivu nje Tanga."
+      },
+      "q3": {
+        "question": "Nini kinachofanya shamba kuwa tofauti na ziara ya kawaida ya bustani?",
+        "answer": "Tanga Banana Garden inachanganya ziara ya kupumzika na kujifunza kwa vitendo. Wageni wanaweza kuona jinsi mazao yanavyolimwa, kusikia hadithi nyuma ya shamba, na kuelewa utamaduni wa kilimo wa ndani wa Tanga."
+      },
+      "q4": {
+        "question": "Je, Tanga Banana Garden ni eco farm au shamba la kikaboni?",
+        "answer": "Ndiyo – sisi ni eco farm ya kikaboni 100% Tanga iliyojitolea kwa mbinu za kilimo endelevu. Hakuna kemikali kali zinazotumiwa, na mbinu zetu zinasaidia bayoanuwai ya ndani na maisha ya jamii."
+      },
+      "q5": {
+        "question": "Je, ninaweza kununua mazao ya kikaboni safi ya shamba katika Tanga Banana Garden?",
+        "answer": "Ndiyo. Wageni wanaweza kununua mazao mapya ya shamba ikiwa ni pamoja na viungo vya kikaboni, kahawa ya ndani, na matunda ya tropiki ya msimu yaliyolimwa shambani."
+      }
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "headline": "Wasiliana na Tanga Banana Garden",
+      "subheadline": "Tumia ukurasa huu kupata mwelekeo, kuuliza kuhusu ziara za shamba na uzoefu wa kahawa, au kupanga ziara ya familia au safari ya shule Tanga."
+    },
+    "locate": {
+      "label": "Tupate",
+      "address1": "Tanga Banana Garden",
+      "address2": "Mji wa Tanga, Tanzania",
+      "address3": "Ungwana, Mtakuja Mkembe, Tanga, Tanzania"
+    },
+    "email": { "label": "Tutumie Barua Pepe", "value": "tanga.farms@gmail.com" },
+    "phone": {
+      "label": "Tupigie Simu",
+      "value": "0702 666773",
+      "hours": "Jumatatu-Jumapili, 8am - 6pm"
+    },
+    "whatsapp": {
+      "label": "Tuma WhatsApp",
+      "value": "0702 666773",
+      "body": "Fungua WhatsApp na uzungumze nasi moja kwa moja"
+    },
+    "form": {
+      "heading": "Tutumie Ujumbe",
+      "subheading": "Jaza fomu hapa chini na timu yetu itawasiliana nawe hivi karibuni.",
+      "firstName": "Jina la Kwanza",
+      "lastName": "Jina la Mwisho",
+      "email": "Anwani ya Barua Pepe",
+      "phone": "Simu",
+      "subject": "Mada",
+      "message": "Ujumbe",
+      "submit": "Tuma Ujumbe",
+      "required": "Inahitajika"
+    },
+    "keywordSection": {
+      "heading": "Hifadhi Nafasi ya Ziara ya Shamba Tanga, Tanzania",
+      "body": "Uko tayari kutembelea Tanga Banana Garden? Iwe unataka kuhifadhi nafasi ya ziara inayoongozwa ya shamba Tanga, kupanga safari ya shule, kuandaa matembezi ya familia, au kufurahia kuonja kahawa ya Tanga – tuko wazi kila siku kuanzia saa 2 asubuhi hadi saa 12 jioni. Piga simu, tuma WhatsApp, au jaza fomu hapa chini. Unaweza pia kununua mazao ya kikaboni ya shamba ikiwa ni pamoja na viungo safi, kahawa, na matunda ya tropiki moja kwa moja kutoka shambani.",
+      "topKeywords": "Hifadhi nafasi ziara shamba Tanga Tanzania · kuhifadhi ziara shamba Tanga Tanzania · uzoefu wa agritourism Tanzania · ziara ya viungo Tanga Tanzania · nunua mazao ya kikaboni Tanga · mazao mapya ya shamba Tanga Tanzania · mazao ya chakula cha ndani Tanga · uzoefu wa chakula cha shamba Tanzania · tembelea mashamba ya ndani Tanga · eco farm tour Tanzania"
+    },
+    "faq": {
+      "label": "Maswali ya Uhifadhi na Wageni",
+      "q1": {
+        "question": "Je, ninahitaji kuhifadhi nafasi mapema?",
+        "answer": "Ingawa wageni wa kutembea wanakaribisha bustanini, tunapendekeza kuhifadhi nafasi ya ziara za shamba, uzoefu wa kahawa, na ziara za shule angalau masaa 24 kabla."
+      },
+      "q2": {
+        "question": "Je, shamba linaweza kufikiwa?",
+        "answer": "Njia nyingi kuu ni tambarare na zinaweza kufikiwa. Baadhi ya misitu ya ndani inaweza kuwa na ardhi isio sawa. Wasiliana nasi kwa mahitaji maalum ya ufikiaji."
+      },
+      "q3": {
+        "question": "Bei ya ziara ya shamba katika Tanga Banana Garden ni ngapi?",
+        "answer": "Wasiliana nasi moja kwa moja kwa simu au WhatsApp kwa +255702666773 kwa bei za sasa za ziara. Tunatoa chaguzi zinazonyumbulika kwa watu binafsi, familia, na vikundi vya shule."
+      },
+      "q4": {
+        "question": "Ninawezaje kufika Tanga Banana Garden kutoka mjini Tanga?",
+        "answer": "Tuko katika Ungwana, Mtakuja Mkembe, Tanga – ndani ya urahisi wa kituo cha mji wa Tanga. Tumia kiungo cha Google Maps kwenye ukurasa huu kwa mwelekeo sahihi, au tupigie simu na tutaakuelekeza."
+      },
+      "q5": {
+        "question": "Je, ninaweza kununua mazao mapya ya kikaboni shambani?",
+        "answer": "Ndiyo – wageni wanaweza kununua mazao ya kikaboni ya shamba ikiwa ni pamoja na viungo safi, kahawa ya Tanga, na matunda ya tropiki ya msimu moja kwa moja kutoka Tanga Banana Garden."
+      }
+    }
+  },
+
+  "footer": {
+    "description": "Tanga Banana Garden ni shamba la kazi Tanga, Tanzania linalotoa ziara za shamba zinazoongozwa, kuonja kahawa, matembezi ya utamaduni, na ziara za elimu kwa familia, wasafiri na vikundi vya shule.",
+    "explore": "Chunguza",
+    "experiences": "Uzoefu",
+    "contact": "Mawasiliano",
+    "links": {
+      "farmTours": "Ziara za Shamba na Kujifunza kwa Vitendo Tanga",
+      "coffee": "Uzoefu wa Kuonja Kahawa ya Tanga",
+      "culturalWalks": "Matembezi ya Utamaduni na Asili",
+      "freshAir": "Hewa Safi na Kupumzika Bustanini"
+    },
+    "findUs": "Tupate kwenye Google Maps",
+    "whatsapp": "Tuma WhatsApp",
+    "instagram": "Instagram",
+    "copyright": "Hakimiliki © 2026 Tanga Banana Garden. Haki zote zimehifadhiwa."
+  },
+
+  "cta": {
+    "heading": "Uko Tayari Kuhifadhi Nafasi ya Ziara ya Shamba Tanga?",
+    "body": "Panga matembezi ya familia, ziara ya kahawa, au safari ya shule na utumie muda katika shamba la kazi la ndizi, kahawa na viungo karibu na mji wa Tanga.",
+    "button": "Hifadhi Nafasi ya Ziara"
+  }
+}
