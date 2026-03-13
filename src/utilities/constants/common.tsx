@@ -41,8 +41,8 @@ const SITE_TITLE_UPPERCASE = SITE_TITLE.toUpperCase()
 const SITE_ALIASES = ['Tanga Garden', 'Tanga Banana', 'Tanga Banana Garden'] as const
 
 const EMAILS = {
-  mail: 'mfaumehisham@gmail.com',
-  mailto: 'mailto:mfaumehisham@gmail.com',
+  mail: 'tanga.farms@gmail.com',
+  mailto: 'mailto:tanga.farms@gmail.com',
 }
 
 const INSTAGRAM_LINK = 'https://www.instagram.com/thebg_farm/reels/?__d=1%3Futm_source%3Dig_embed'
