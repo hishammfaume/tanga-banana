@@ -10,8 +10,11 @@ import { CheckIcon } from '@/ui/components/icons'
 import Link from 'next/link'
 import { routes } from '@/routes'
 import { ICONS } from '@/utilities/constants/common'
+import { getTranslations } from 'next-intl/server'
 
-const TourSection = () => {
+const TourSection = async ({ locale }: { locale: string }) => {
+  const t = await getTranslations({ locale, namespace: 'home.getaway' })
+
   return (
     <Box sx={sx}>
       <PageContainer transparent>
@@ -35,7 +38,7 @@ const TourSection = () => {
               fontWeight={500}
               textTransform="uppercase"
             >
-              Your Ideal Getaway
+              {t('label')}
             </Typography>
             <Typography
               variant="h4"
@@ -44,35 +47,33 @@ const TourSection = () => {
               fontWeight={600}
               lineHeight={1.25}
             >
-              The Perfect Day Tour
+              {t('heading')}
             </Typography>
             <Typography variant="body2" color="grey.500" textAlign="start" maxWidth={500}>
-              Whether you are planning a family outing, a school visit, or a peaceful day trip,
-              Tanga Banana Garden offers a farm tour in Tanga that is easy to reach and rich in
-              coffee, culture, and quiet countryside moments.
+              {t('body')}
             </Typography>
             <Stack direction="row" spacing={2}>
               <CheckIcon />
               <Typography variant="body2" color="grey.500" textAlign="start">
-                Easy day trip from Tanga city with simple directions
+                {t('features.directions')}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
               <CheckIcon />
               <Typography variant="body2" color="grey.500" textAlign="start">
-                Guided banana, coffee, and spice farm experiences
+                {t('features.guided')}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
               <CheckIcon />
               <Typography variant="body2" color="grey.500" textAlign="start">
-                Family-friendly and school-friendly learning environment
+                {t('features.school')}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
               <CheckIcon />
               <Typography variant="body2" color="grey.500" textAlign="start">
-                Fresh air, shaded rest areas, and time to slow down
+                {t('features.rest')}
               </Typography>
             </Stack>
             <Button
@@ -81,7 +82,6 @@ const TourSection = () => {
               variant="outlined"
               color="primary"
               sx={{
-                // border: 'none',
                 mt: 1.5,
                 borderRadius: '10px',
                 textTransform: 'none',
@@ -92,7 +92,7 @@ const TourSection = () => {
               }}
               endIcon={ICONS.arrow_forward}
             >
-              Ask about bookings, school visits, and directions
+              {t('cta')}
             </Button>
           </Stack>
         </Stack>

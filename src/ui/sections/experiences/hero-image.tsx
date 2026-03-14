@@ -43,6 +43,7 @@ const HeroImage = ({ src, alt, priority = false, eyebrow, indexLabel }: HeroImag
           src={src}
           alt={alt}
           fill
+          placeholder={typeof src === 'string' ? 'empty' : 'blur'}
           priority={priority}
           sizes="(max-width: 600px) 100vw, (max-width: 900px) 70vw, 440px"
           style={{ objectFit: 'cover', transform: 'scale(1.03)' }}

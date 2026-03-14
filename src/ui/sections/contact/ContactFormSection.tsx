@@ -8,6 +8,8 @@ import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { useSnackbar } from 'notistack'
+import { useTranslations } from 'next-intl'
+import { getLocalizedAppPath } from '@/utilities/localizedRoutes'
 
 type ContactFormValues = {
   firstName: string
@@ -18,7 +20,8 @@ type ContactFormValues = {
   message: string
 }
 
-const ContactFormSection = () => {
+const ContactFormSection = ({ locale }: { locale: string }) => {
+  const t = useTranslations('contact.form')
   const { register, handleSubmit, reset, formState } = useForm<ContactFormValues>({
     defaultValues: {
       firstName: '',
@@ -35,23 +38,36 @@ const ContactFormSection = () => {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(getLocalizedAppPath(locale, '/api/contact'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       })
+      const responseText = await res.text()
+      let payload: { error?: string } | null = null
 
-      const payload = await res.json()
+      if (responseText) {
+        try {
+          payload = JSON.parse(responseText) as { error?: string }
+        } catch {
+          payload = null
+        }
+      }
 
       if (!res.ok) {
         throw new Error(payload?.error || 'Failed to send message')
       }
 
-      enqueueSnackbar('Message sent successfully. Check your email for confirmation.', {
-        variant: 'success',
-      })
+      enqueueSnackbar(
+        locale === 'sw'
+          ? 'Ujumbe umetumwa. Angalia barua pepe yako kwa uthibitisho.'
+          : 'Message sent successfully. Check your email for confirmation.',
+        {
+          variant: 'success',
+        },
+      )
       reset()
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Something went wrong'
@@ -73,10 +89,10 @@ const ContactFormSection = () => {
     >
       <Stack spacing={1.5} mb={2}>
         <Typography variant="h6" fontWeight={700} color="grey.700">
-          Send us a Message
+          {t('heading')}
         </Typography>
         <Typography variant="body2" color="grey.600">
-          Fill out the form below and our team will get back to you shortly.
+          {t('subheading')}
         </Typography>
       </Stack>
 
@@ -84,34 +100,34 @@ const ContactFormSection = () => {
         <Stack spacing={{ xs: 2, md: 3 }} mb={3}>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
             <TextField
-              label="First Name"
+              label={t('firstName')}
               fullWidth
               {...register('firstName', { required: true })}
               required
             />
             <TextField
-              label="Last Name"
+              label={t('lastName')}
               fullWidth
               {...register('lastName', { required: true })}
               required
             />
           </Stack>
           <TextField
-            label="Email Address"
+            label={t('email')}
             type="email"
             fullWidth
             {...register('email', { required: true })}
             required
           />
-          <TextField label="Phone" fullWidth {...register('phone')} />
+          <TextField label={t('phone')} fullWidth {...register('phone')} />
           <TextField
-            label="Subject"
+            label={t('subject')}
             fullWidth
             {...register('subject', { required: true })}
             required
           />
           <TextField
-            label="Message"
+            label={t('message')}
             fullWidth
             multiline
             minRows={4}
@@ -127,7 +143,7 @@ const ContactFormSection = () => {
             disabled={isSubmitting}
             sx={{ textTransform: 'none', py: 1.4 }}
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {isSubmitting ? (locale === 'sw' ? 'Inatuma...' : 'Sending...') : t('submit')}
           </Button>{' '}
         </Stack>
       </Box>

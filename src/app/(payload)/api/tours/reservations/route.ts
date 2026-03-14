@@ -3,6 +3,7 @@ import { getPayload, type Payload } from 'payload'
 import payloadConfig from '@payload-config'
 import type { TourReservation } from '@/payload-types'
 import { loadAndCompileTemplate } from '@/mjml/helpers'
+import { BOOKING_NOTIFICATION_EMAIL } from '@/utilities/constants/notificationEmails'
 
 export const dynamic = 'force-dynamic'
 
@@ -55,8 +56,7 @@ const sendReservationEmails = async ({
   reservation: TourReservation
 }) => {
   const bookingItems = buildBookingSummaryItems(reservation)
-  const internalRecipient =
-    process.env.BOOKING_NOTIFICATION_EMAIL || process.env.SMTP_TO || process.env.SMTP_USER
+  const internalRecipient = BOOKING_NOTIFICATION_EMAIL
 
   const sendEmailTasks: Array<Promise<unknown>> = [
     payload.sendEmail({

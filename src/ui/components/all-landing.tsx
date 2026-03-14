@@ -22,6 +22,7 @@ const Landing: React.FC<LandingProps> = ({ title, description }) => {
           spacing={2}
           justifyContent={'center'}
           alignItems="center"
+          alignContent={'center'}
           paddingTop={{ xs: 2, [NAVBAR.BREAKPOINT]: 2 }}
         >
           <span>
@@ -33,6 +34,7 @@ const Landing: React.FC<LandingProps> = ({ title, description }) => {
               marginTop={1}
               lineHeight={1.25}
               className="hero-title"
+              textAlign="center"
             >
               {title}
             </Typography>
@@ -119,6 +121,7 @@ const sx: SxProps = {
     [responsive('down', 'sm')]: {
       ...typography.h3,
       fontWeight: FONTS.poppins.fontWeights[600],
+      textAlign: 'center',
 
       '& span:not(:first-of-type)': {
         textTransform: 'lowercase',

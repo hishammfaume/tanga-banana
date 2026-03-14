@@ -3,41 +3,74 @@ import {
   createBreadcrumbStructuredData,
   createFaqStructuredData,
   createLocalBusinessStructuredData,
-  createPageMetadata,
+  // createPageMetadata,
 } from '@/utilities/seo'
 import Box from '@mui/material/Box'
 import React from 'react'
 
 import PageContainer from '@/ui/components/page-container'
 import SectionSpacer from '@/ui/components/section-spacer'
+import FaqSection from '@/ui/components/FaqSection'
 import ContactFormSection from '@/ui/sections/contact/ContactFormSection'
 import ContactInfoSection from '@/ui/sections/contact/ContactInfoSection'
-import { CONTACT_FAQS } from '@/ui/sections/contact/constants'
+// import { CONTACT_FAQS } from '@/ui/sections/contact/constants'
 import Landing from '@/ui/components/all-landing'
 import Stack from '@mui/material/Stack'
 import Card from '@mui/material/Card'
+import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
-export const metadata = createPageMetadata({
-  title: 'Book a Farm Tour in Tanga | Contact and Directions',
-  description:
-    'Contact Tanga Banana Garden for directions, farm tour bookings, coffee tasting visits, and school trip planning in Tanga, Tanzania.',
-  path: '/contact',
-  keywords: [
-    'book farm tour Tanga',
-    'Tanga farm location',
-    'school visit contact Tanga',
-    'coffee tasting booking Tanga',
-  ],
-})
+const BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
-const breadcrumbStructuredData = createBreadcrumbStructuredData([
-  { name: 'Home', path: '/' },
-  { name: 'Contact', path: '/contact' },
-])
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata.contact' })
 
-const faqStructuredData = createFaqStructuredData([...CONTACT_FAQS])
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/contact`,
+      languages: {
+        en: `${BASE_URL}/en/contact`,
+        sw: `${BASE_URL}/sw/contact`,
+        'x-default': `${BASE_URL}/en/contact`,
+      },
+    },
+    openGraph: mergeOpenGraph({
+      title: t('title'),
+      description: t('description'),
+      url: `${BASE_URL}/${locale}/contact`,
+      locale: locale === 'sw' ? 'sw_TZ' : 'en_TZ',
+    }),
+    robots: { index: true, follow: true },
+  }
+}
 
-const ContactPage = () => {
+const ContactPage = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'contact' })
+  const tFaq = await getTranslations({ locale, namespace: 'contact.faq' })
+
+  const CONTACT_FAQS = [
+    { question: tFaq('q1.question'), answer: tFaq('q1.answer') },
+    { question: tFaq('q2.question'), answer: tFaq('q2.answer') },
+    { question: tFaq('q3.question'), answer: tFaq('q3.answer') },
+    { question: tFaq('q4.question'), answer: tFaq('q4.answer') },
+    { question: tFaq('q5.question'), answer: tFaq('q5.answer') },
+  ]
+
+  const breadcrumbStructuredData = createBreadcrumbStructuredData([
+    { name: locale === 'sw' ? 'Nyumbani' : 'Home', path: `/${locale}` },
+    { name: locale === 'sw' ? 'Mawasiliano' : 'Contact', path: `/${locale}/contact` },
+  ])
+  const faqStructuredData = createFaqStructuredData(CONTACT_FAQS)
   return (
     <>
       <JsonLd data={breadcrumbStructuredData} />
@@ -45,16 +78,13 @@ const ContactPage = () => {
       <JsonLd data={createLocalBusinessStructuredData()} />
       <Box component="main">
         <PageContainer>
-          <Landing
-            title="Contact Tanga Banana Garden"
-            description="Use this page to get directions, ask about farm tours and coffee experiences, or plan a family visit or school trip in Tanga."
-          />
+          <Landing title={t('hero.headline')} description={t('hero.subheadline')} />
         </PageContainer>
-        <SectionSpacer small />
+        {/* <SectionSpacer small /> */}
         <PageContainer>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 8 }}>
-            <ContactInfoSection />
-            <ContactFormSection />
+            <ContactInfoSection locale={locale} />
+            <ContactFormSection locale={locale} />
           </Stack>
         </PageContainer>
         <PageContainer>
@@ -67,10 +97,27 @@ const ContactPage = () => {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Map showing the location of Tanga Banana Garden in Tanzania"
+              title={
+                locale === 'sw'
+                  ? 'Ramani inayoonyesha mahali pa Tanga Banana Garden Tanzania'
+                  : 'Map showing the location of Tanga Banana Garden in Tanzania'
+              }
             />
           </Card>
         </PageContainer>
+        <SectionSpacer small />
+        <PageContainer>
+          <FaqSection
+            title={tFaq('heading')}
+            description={
+              locale === 'sw'
+                ? 'Maswali haya yanajibu masuala ya kawaida kuhusu mawasiliano, mwelekeo, muda wa kujibu, na kupanga ziara yako ya shamba huko Tanga.'
+                : 'These answers cover the most common questions about getting in touch, finding us, response times, and planning your farm visit in Tanga.'
+            }
+            items={CONTACT_FAQS}
+          />
+        </PageContainer>
+        <SectionSpacer />
       </Box>
     </>
   )

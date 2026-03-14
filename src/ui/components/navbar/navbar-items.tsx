@@ -1,126 +1,114 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
-
 'use client'
-import { Fragment, memo, useMemo, useRef } from 'react'
+import { memo } from 'react'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import useSettings from 'src/hooks/useSettings'
 import Stack from '@mui/material/Stack'
 import List from '@mui/material/List'
-import { NAVBAR, NAVBAR_ITEMS } from './constants'
+import { NAVBAR, getNavbarItems } from './constants'
 import ListItem from '@mui/material/ListItem'
 import Link from 'next/link'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import ListItemText from '@mui/material/ListItemText'
 import { NavbarCallToActionButtons } from './nav-bar-call-to-actions'
-import { ClickAwayListener, Collapse } from 'node_modules/@mui/material'
+import ClickAwayListener from '@mui/material/ClickAwayListener'
+import Collapse from '@mui/material/Collapse'
+import { alpha, SxProps } from '@mui/material/styles'
 import { responsive } from '@/utilities/breakpoints'
 import typography from '@/Theme/typography'
 import palette from '@/Theme/palette'
 import { globalCssVar } from '../GlobalStyles'
+import { useTranslations } from 'next-intl'
+import LanguageSwitcher from './LanguageSwitcher'
 
-const NavbarItems = memo<NavbarItemsProps>(function NavbarItems() {
-  const { toggleNavbar, onClickAway, isNavbarOpen, onLinkClick } = useSettings()
+type NavbarItemsProps = {
+  locale: string
+}
 
-  const isUpBreakPoint = useMediaQuery<Theme>((theme) => theme.breakpoints.down(NAVBAR.BREAKPOINT))
+const NavbarItems = memo<NavbarItemsProps>(function NavbarItems({ locale }) {
+  const { closeNavbar, toggleNavbar, onClickAway, isNavbarOpen, onLinkClick } = useSettings()
 
-  const refs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
+  const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down(NAVBAR.BREAKPOINT))
 
-  const children = useMemo(() => {
-    return (
-      <>
-        <IconButton
-          sx={{ justifyContent: 'center', alignItems: 'center' }}
-          className="nav-toggle fake"
+  const t = useTranslations()
+
+  const navbarItems = getNavbarItems(locale)
+
+  const navList = (
+    <Stack
+      component={List}
+      spacing={isMobile ? 0.75 : 0}
+      className="nav-items"
+      sx={nav_items_sx}
+      direction={isMobile ? 'column' : 'row'}
+    >
+      {navbarItems.map((item) => (
+        <ListItem
+          key={item.name}
+          href={item.href}
+          component={Link}
+          onClick={onLinkClick}
+          sx={item.sx ? ([nav_link_sx, item.sx] as SxProps<Theme>) : nav_link_sx}
         >
-          <MenuIcon />
-        </IconButton>
-        <Stack>
-          <Stack
-            component={List}
-            spacing={1}
-            className="nav-items"
-            sx={nav_items_sx}
-            direction={{
-              xs: 'column',
-              [NAVBAR.BREAKPOINT]: 'row',
-            }}
-          >
-            {NAVBAR_ITEMS.map((item) => {
-              return (
-                <Fragment key={item.name}>
-                  <ListItem
-                    href={item.href}
-                    component={Link}
-                    onClick={onLinkClick}
-                    ref={(e) => {
-                      refs.current[item.name] = e as unknown as HTMLButtonElement
-                    }}
-                    sx={item.sx}
-                  >
-                    <ListItemText className="nav-item-text" primary={item.name} />
-                  </ListItem>
-                </Fragment>
-              )
-            })}
-          </Stack>
-          <NavbarCallToActionButtons mobile />
-        </Stack>
-      </>
-    )
-  }, [onLinkClick])
+          <ListItemText className="nav-item-text" primary={t(item.name)} />
+        </ListItem>
+      ))}
+    </Stack>
+  )
 
-  if (!isUpBreakPoint) return children
+  if (!isMobile) {
+    return navList
+  }
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     <ClickAwayListener onClickAway={onClickAway as any}>
       <div>
-        <IconButton
-          className="nav-toggle"
-          sx={{ justifyContent: 'center', alignItems: 'center' }}
-          onClick={toggleNavbar}
-        >
-          <MenuIcon color="inherit" />
-        </IconButton>
+        <Stack direction="row" spacing={1} alignItems="center">
+          <LanguageSwitcher locale={locale} onSwitch={closeNavbar} />
+
+          <IconButton
+            className="nav-toggle"
+            sx={{ justifyContent: 'center', alignItems: 'center' }}
+            onClick={toggleNavbar}
+          >
+            <MenuIcon color="inherit" />
+          </IconButton>
+        </Stack>
 
         <Collapse sx={collapse_sx} in={isNavbarOpen}>
-          <div>{children}</div>
+          <Stack className="mobile-nav-sheet" spacing={2.25}>
+            {navList}
+
+            <NavbarCallToActionButtons locale={locale} mobile />
+          </Stack>
         </Collapse>
       </div>
     </ClickAwayListener>
   )
 })
 
-type NavbarItemsProps = {}
 const collapse_sx = {
   position: 'fixed',
   top: globalCssVar('page-container-padding-top'),
   left: 0,
   right: 0,
   backgroundColor: globalCssVar('nav-background-color'),
-  // boxShadow: shadows[12],
-  boxShadow: '0px 12px 12px 0px rgba(0,0,0,0.1)',
-  //border top
-  borderTop: palette.grey[200],
-  borderTopWidth: 1,
-  borderTopStyle: 'solid',
+  backdropFilter: 'blur(20px)',
+  boxShadow: `0 18px 40px ${alpha(palette.grey[900], 0.08)}`,
+  borderTop: `1px solid ${alpha(palette.primary.main, 0.1)}`,
 
-  '& .nav-items': {
-    display: 'flex',
-  },
-
-  '& .fake': {
-    display: 'none !important',
+  '& .mobile-nav-sheet': {
+    paddingTop: 2,
   },
 }
 
 const nav_items_sx = {
+  alignItems: 'center',
   flexWrap: 'nowrap',
-
-  [responsive('down', NAVBAR.BREAKPOINT)]: {
-    display: 'none',
-  },
+  justifyContent: 'center',
+  minWidth: 0,
+  padding: 0,
 
   '& .nav-child-toggle': {
     transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -138,6 +126,29 @@ const nav_items_sx = {
     whiteSpace: 'nowrap',
     textAlign: 'center',
     ...typography.body2,
+    fontWeight: 600,
+  },
+
+  [responsive('down', NAVBAR.BREAKPOINT)]: {
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    paddingX: 2,
+  },
+}
+
+const nav_link_sx: SxProps<Theme> = {
+  alignItems: 'center',
+  borderRadius: '999px',
+  color: 'text.primary',
+  display: 'flex',
+  minHeight: { xs: 50, md: 40 },
+  paddingX: { xs: 2, md: 1.5 },
+  paddingY: { xs: 1, md: 0.75 },
+  transition: 'background-color 160ms ease, color 160ms ease, transform 160ms ease',
+  width: { xs: '100%', md: 'auto' },
+  '&:hover': {
+    backgroundColor: alpha(palette.primary.main, 0.08),
+    transform: 'translateY(-1px)',
   },
 }
 

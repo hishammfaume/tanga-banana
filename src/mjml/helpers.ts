@@ -1,12 +1,11 @@
 import fs from 'fs'
 import handlebars from 'handlebars'
 import path from 'path'
-// import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url'
 
-// const HERE = path.resolve(fileURLToPath(import.meta.url));
-
-// const BASE_DIR = path.dirname(HERE);
 const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'mjml')
+const HERE = path.resolve(fileURLToPath(import.meta.url))
+const BASE_DIR = path.dirname(HERE)
 
 const loadTemplate = (file: AvailableTemplates) => {
   if (!file.endsWith('.mjml')) {
@@ -36,7 +35,7 @@ const loadAndCompileTemplate = <T extends AvailableTemplates>(path: T, params: P
 }
 
 const getAllMjmlFiles = (strip: boolean = false) => {
-  const files = fs.readdirSync(__dirname)
+  const files = fs.readdirSync(BASE_DIR)
   console.log('MJML files found:', files)
 
   return files.reduce((acc, file) => {

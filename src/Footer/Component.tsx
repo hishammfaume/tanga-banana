@@ -21,37 +21,73 @@ import { FONTS } from '@/Theme/fonts'
 import { SITE_TITLE } from '@/utilities/constants/common'
 import Grid, { GridProps } from '@mui/material/Grid'
 import { LogoWide } from '@/ui/components/navbar/logo'
-import { LINKS } from './constants'
+import { getFooterLinkGroups } from './constants'
+import { useTranslations } from 'next-intl'
 // import SectionSpacer from '@/ui/components/section-spacer'
 
-export function Footer() {
+type FooterProps = {
+  locale: string
+}
+
+export function Footer({ locale }: FooterProps) {
   // const footerData: Footer = await getCachedGlobal('footer', 1)()
 
   // const navItems = footerData?.navItems || []
   const { openModal } = useBookingModal()
+  const tFooter = useTranslations('footer')
+  const tNav = useTranslations('nav')
+  const tCta = useTranslations('cta')
+  const currentYear = new Date().getFullYear()
+  const links = getFooterLinkGroups({
+    locale,
+    labels: {
+      groups: {
+        explore: tFooter('explore'),
+        experiences: tFooter('experiences'),
+        contact: tFooter('contact'),
+      },
+      nav: {
+        home: tNav('home'),
+        experiences: tNav('experiences'),
+        about: tNav('about'),
+        blog: tNav('blog'),
+        contact: tNav('contact'),
+      },
+      experiences: {
+        farmTours: tFooter('links.farmTours'),
+        coffee: tFooter('links.coffee'),
+        culturalWalks: tFooter('links.culturalWalks'),
+        freshAir: tFooter('links.freshAir'),
+      },
+      contact: {
+        whatsapp: tFooter('whatsapp'),
+        instagram: tFooter('instagram'),
+        findUs: tFooter('findUs'),
+      },
+    },
+  })
+
   return (
     <Box sx={sx}>
       <Box className="call-to-action">
         <PageContainer ignoreNavHeight transparent>
           <Stack alignItems="center" justifyContent="center" py={8} spacing={3}>
             <Typography variant="h3" color="grey.800">
-              Ready to book a farm tour in Tanga?
+              {tCta('heading')}
             </Typography>
             <Stack alignItems={'center'} justifyContent="center" spacing={3}>
               <Typography variant="body2" color="grey.500" mt={2} textAlign="center" maxWidth={500}>
-                Plan a family outing, coffee visit, or school trip and spend time at a working
-                banana, coffee, and spice farm close to Tanga city.
+                {tCta('body')}
               </Typography>
               <Button
                 size="large"
                 variant="contained"
                 color="primary"
                 disableElevation
-                LinkComponent={Link}
                 onClick={() => openModal()}
                 sx={{ borderRadius: '10px' }}
               >
-                Book Your Farm Visit
+                {tCta('button')}
               </Button>
             </Stack>
           </Stack>
@@ -74,14 +110,12 @@ export function Footer() {
                   sx={{ marginTop: 2 }}
                   fontWeight={FONTS.poppins.fontWeights[400]}
                 >
-                  Tanga Banana Garden is a working farm in Tanga, Tanzania offering guided farm
-                  tours, coffee tasting, cultural walks, and educational visits for families,
-                  travelers, and school groups.
+                  {tFooter('description')}
                 </Typography>
               </Stack>
             </Grid>
 
-            {LINKS.map((group, index) => (
+            {links.map((group, index) => (
               <Grid key={index} size={gridSize}>
                 <Stack spacing={1}>
                   <Typography
@@ -158,7 +192,7 @@ export function Footer() {
                 md: 'left',
               }}
             >
-              © {new Date().getFullYear()} All rights reserved
+              {tFooter('copyrightShort', { year: currentYear })}
             </Typography>
           </Box>
           <Box
@@ -174,11 +208,22 @@ export function Footer() {
               fontWeight={FONTS.poppins.fontWeights[400]}
               textAlign="center"
             >
-              Copyright © {new Date().getFullYear()} {SITE_TITLE}. All rights reserved.
+              {tFooter('copyrightLong', {
+                year: currentYear,
+                siteTitle: SITE_TITLE,
+              })}
             </Typography>
           </Box>
 
-          <FooterSocials flex={1} justifyContent="center" />
+          <FooterSocials
+            flex={1}
+            justifyContent="center"
+            titles={{
+              instagram: tFooter('instagram'),
+              google: tFooter('findUs'),
+              whatsapp: tFooter('whatsapp'),
+            }}
+          />
         </Stack>
       </PageContainer>
     </Box>

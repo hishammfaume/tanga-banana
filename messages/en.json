@@ -28,15 +28,91 @@
     "about": "About Us",
     "contact": "Contact Us",
     "book": "Book Farm Tour",
+    "blog": "Blog",
     "phone": "0702 666773",
     "languageSwitch": "Swahili"
+  },
+
+  "bookingModal": {
+    "title": "Book Farm Tour",
+    "subtitle": "Choose your preferred date and time, then tell us who is coming along.",
+    "sections": {
+      "tourDetails": "Tour details",
+      "yourDetails": "Your details"
+    },
+    "fields": {
+      "date": "Date of tour",
+      "preferredTime": "Preferred time",
+      "fullName": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "adults": "Adults",
+      "children": "Children",
+      "notes": "Additional notes"
+    },
+    "placeholders": {
+      "fullName": "Enter your full name",
+      "email": "name@example.com",
+      "phone": "+255 ...",
+      "notes": "Share any special requests, accessibility needs, or preferred experiences."
+    },
+    "timeBands": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "fullday": "Full day"
+    },
+    "notice": "By sending this request, you will not be charged. Our team will confirm availability and final details with you.",
+    "messages": {
+      "validation": {
+        "nameEmailRequired": "Name and email are required."
+      },
+      "snackbar": {
+        "success": "Booking request submitted successfully!",
+        "error": "Failed to submit booking request. Please try again."
+      },
+      "success": "Booking request submitted. Code: {code}"
+    },
+    "summary": {
+      "title": "Your day at Tanga Banana",
+      "description": "Typical visit includes a guided farm tour, planting of trees, time to relax in the garden, and an optional Tanga coffee moment.",
+      "selectedTime": "Selected time",
+      "estimatedDuration": "Estimated duration",
+      "duration": {
+        "fullday": "Full day",
+        "partial": "3–4 hours"
+      },
+      "idealForLabel": "Ideal for",
+      "idealForValue": "Families & nature lovers",
+      "guests": "Guests",
+      "footer": "We will confirm exact timings and pricing with you by email or phone after receiving your request."
+    },
+    "contact": {
+      "call": "Call {phone}",
+      "whatsapp": "Chat on WhatsApp",
+      "availability": "Mon–Sun, 8am – 6pm",
+      "labels": {
+        "email": "Email",
+        "availability": "Availability",
+        "location": "Location"
+      }
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "submitting": "Booking…",
+      "submit": "Send Booking Request"
+    },
+    "guests": {
+      "adults": "{count, plural, one {# adult} other {# adults}}",
+      "children": "{count, plural, one {# child} other {# children}}"
+    }
   },
 
   "home": {
     "hero": {
       "headline": "Escape to Nature's Paradise in Tanga",
       "subheadline": "Discover a peaceful banana, coffee, and spice farm in Tanga, where lush green groves and fresh country air set the perfect scene for your city break.",
-      "cta": "Book Farm Tour"
+      "cta": "Book Farm Tour",
+      "secondaryCta": "Explore Experiences"
     },
     "about": {
       "label": "About Us",
@@ -47,18 +123,19 @@
         "groves": "Banana, coffee and spice groves",
         "family": "Family and school friendly visits"
       },
-      "learnMore": "Learn More About Us"
-    },
-    "values": {
-      "families": {
-        "title": "Made for Families & Nature Lovers",
-        "body": "Safe walking paths, shaded rest stops, and welcoming hosts make this an easy day trip for families, travelers, and school groups."
-      },
-      "organic": {
-        "title": "Rooted in Organic Farming",
-        "body": "We grow bananas, coffee, and spices using farming practices that respect the soil, support biodiversity, and create meaningful learning for visitors."
+      "learnMore": "Learn More About Us",
+      "values": {
+        "families": {
+          "title": "Made for Families & Nature Lovers",
+          "body": "Safe walking paths, shaded rest stops, and welcoming hosts make this an easy day trip for families, travelers, and school groups."
+        },
+        "organic": {
+          "title": "Rooted in Organic Farming",
+          "body": "We grow bananas, coffee, and spices using farming practices that respect the soil, support biodiversity, and create meaningful learning for visitors."
+        }
       }
     },
+
     "experiences": {
       "heading": "Authentic Farm Experiences in Tanga",
       "subheading": "Explore guided farm tours, fresh coffee moments, cultural walks, and quiet green spaces that make Tanga Banana Garden a memorable day trip for families, travelers, and student groups.",
@@ -249,13 +326,21 @@
       "q6": {
         "question": "Can I volunteer or intern at an organic farm in Tanzania?",
         "answer": "We welcome inquiries from students, gap year travelers, and agricultural interns interested in sustainable farming, community work, and agritourism in Tanzania. Contact us to discuss opportunities."
+      },
+      "q7": {
+        "question": "Are the experiences accessible for disabled visitors?",
+        "answer": "Yes. The main visitor areas used for farm tours and garden visits are wheelchair friendly, with accessible paths and enough space for guests with reduced mobility to move around comfortably. If you have specific access needs, contact us before your visit and we will help you plan the best experience."
+      },
+      "q8": {
+        "question": "Are there clean toilets and fresh water during the visit?",
+        "answer": "Yes. Visitors have access to clean toilets and fresh water during their experience, which makes the farm comfortable for families, school groups, and guests spending several hours on site."
       }
     }
   },
 
   "about": {
     "hero": {
-      "headline": "About Tanga Banana Garden – Our Story & Farm Philosophy",
+      "headline": "Our Story & Farm Philosophy",
       "subheadline": "Discover how Tanga Banana Garden grew into a welcoming banana, coffee, and spice farm where visitors can learn about sustainable farming and enjoy meaningful time outdoors."
     },
     "story": {
@@ -348,6 +433,14 @@
       "q5": {
         "question": "Can I buy fresh organic farm products at Tanga Banana Garden?",
         "answer": "Yes. Visitors can purchase fresh farm produce including organic spices, local coffee, and seasonal tropical fruits grown on the farm."
+      },
+      "q6": {
+        "question": "Is Tanga Banana Garden accessible for disabled visitors?",
+        "answer": "Yes. The main visitor areas are wheelchair friendly, with accessible paths and enough space for guests with reduced mobility to move around comfortably. If you have specific access needs, contact us before your visit and we will help you plan."
+      },
+      "q7": {
+        "question": "Are there clean toilets and fresh water for visitors?",
+        "answer": "Yes. Visitors have access to clean toilets and fresh water during their visit, so families, school groups, and day visitors can stay comfortable while spending time at the farm."
       }
     }
   },
@@ -389,6 +482,7 @@
     },
     "faq": {
       "label": "Booking and visitor questions",
+      "heading": "Everything you need before reaching out",
       "q1": {
         "question": "Do I need to book in advance?",
         "answer": "While walk-ins are welcome for the garden, we recommend booking farm tours, coffee experiences, and school visits at least 24 hours in advance."
@@ -426,12 +520,35 @@
     "findUs": "Find Us on Google Maps",
     "whatsapp": "WhatsApp Us",
     "instagram": "Instagram",
-    "copyright": "Copyright © 2026 Tanga Banana Garden. All rights reserved."
+    "copyrightShort": "© {year} All rights reserved.",
+    "copyrightLong": "Copyright © {year} {siteTitle}. All rights reserved."
   },
 
   "cta": {
     "heading": "Ready to book a farm tour in Tanga?",
     "body": "Plan a family outing, coffee visit, or school trip and spend time at a working banana, coffee, and spice farm close to Tanga city.",
     "button": "Book Your Farm Visit"
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Farm Tours, Agritourism & Things to Do in Tanga – Tanga Banana Garden",
+      "description": "Guides on agritourism in Tanzania, the best places to visit in Tanga, farm tours, coffee experiences, eco tourism, school trips, and more from Tanga Banana Garden.",
+      "keywords": "things to do Tanga, agritourism Tanzania, farm tour Tanzania, places to visit Tanga, coffee experience Tanzania, eco tourism Tanzania, school trip Tanzania"
+    },
+    "index": {
+      "heading": "Guides, Stories & Travel Tips",
+      "subheading": "Agritourism Tanzania · Things to do in Tanga · Farm tours · Coffee · Eco travel · School trips",
+      "empty": "No articles yet — check back soon."
+    },
+    "post": {
+      "galleryHeading": "Photos from the Farm",
+      "relatedHeading": "You might also enjoy"
+    },
+    "cta": {
+      "label": "Ready to Visit?",
+      "heading": "Book a farm tour and experience it for yourself",
+      "body": "Walk the banana groves, taste fresh Tanga coffee, and enjoy a calm day out close to the city. Book directly or call us — we will help you plan the right visit.",
+      "book": "Book Farm Tour"
+    }
   }
 }

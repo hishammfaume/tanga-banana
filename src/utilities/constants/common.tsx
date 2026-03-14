@@ -68,12 +68,12 @@ const PHONE_NUMBER = {
     href: 'tel:+255702666773',
   },
   whatsapp: {
-    formatted: '0742104020',
+    formatted: '255742104020',
     href: 'tel:+255742104020',
   },
 }
 
-const CONTACT_PHONE_DIGITS = PHONE_NUMBER.contact.formatted.replace(/\D/g, '')
+const CONTACT_PHONE_DIGITS = PHONE_NUMBER.whatsapp.formatted.replace(/\D/g, '')
 const WHATSAPP_LINK = `https://wa.me/${CONTACT_PHONE_DIGITS}?text=${encodeURIComponent(
   'Hello Tanga Banana Garden, I would like to plan a farm visit.',
 )}`

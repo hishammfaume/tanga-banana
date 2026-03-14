@@ -13,8 +13,12 @@ import Button from '@mui/material/Button'
 import Link from 'next/link'
 import { routes } from '@/routes'
 import { ICONS } from '@/utilities/constants/common'
+import { getTranslations } from 'next-intl/server'
 
-const AboutUsSection = () => {
+const AboutUsSection = async ({ locale }: { locale: string }) => {
+  const t = getTranslations({ locale, namespace: 'home.about' })
+  const tResolved = await t
+
   return (
     <PageContainer transparent id="about">
       <Stack
@@ -32,7 +36,7 @@ const AboutUsSection = () => {
             fontWeight={500}
             textTransform="uppercase"
           >
-            About Us
+            {tResolved('label')}
           </Typography>
           <Typography
             variant="h4"
@@ -41,22 +45,20 @@ const AboutUsSection = () => {
             fontWeight={600}
             lineHeight={1.25}
           >
-            A Working Banana, Coffee and Spice Farm in Tanga
+            {tResolved('heading')}
           </Typography>
           <Typography variant="body2" color="grey.500" textAlign="start" maxWidth={500}>
-            Tanga Banana Garden is a working banana, coffee, and spice farm in the city of Tanga,
-            Tanzania. We welcome you to slow down, breathe deeply, and reconnect with nature in a
-            calm and friendly setting.
+            {tResolved('body')}
           </Typography>
           <Grid container spacing={2} mt={1}>
             <Grid>
-              <Chip label="Easy day trip from Tanga city" variant="filled" />
+              <Chip label={tResolved('features.daytrip')} variant="filled" />
             </Grid>
             <Grid>
-              <Chip label="Banana, coffee and spice groves" variant="filled" />
+              <Chip label={tResolved('features.groves')} variant="filled" />
             </Grid>
             <Grid>
-              <Chip label="Family and school friendly visits" variant="filled" />
+              <Chip label={tResolved('features.family')} variant="filled" />
             </Grid>
           </Grid>
           <Button
@@ -66,7 +68,6 @@ const AboutUsSection = () => {
             href={routes.about}
             disableElevation
             sx={{
-              // border: 'none',
               display: { xs: 'none', [NAVBAR.BREAKPOINT]: 'inline-flex' },
               mt: 1.5,
               borderRadius: '10px',
@@ -78,7 +79,7 @@ const AboutUsSection = () => {
             }}
             endIcon={ICONS.arrow_forward}
           >
-            Learn More About Us
+            {tResolved('learnMore')}
           </Button>
         </Stack>
         <Stack
@@ -93,15 +94,15 @@ const AboutUsSection = () => {
               avatar={
                 <Avatar
                   sx={{ bgcolor: 'secondary.main', width: 50, height: 50 }}
-                  aria-label="plant"
+                  aria-label="people"
                 >
                   <PeopleIcon />
                 </Avatar>
               }
               action={null}
               sx={{ alignItems: 'flex-start' }}
-              title="Made for Families & Nature Lovers"
-              subheader="Safe walking paths, shaded rest stops, and welcoming hosts make this an easy day trip for families, travelers, and school groups."
+              title={tResolved('values.families.title')}
+              subheader={tResolved('values.families.body')}
               slotProps={{
                 title: { color: 'grey.800', align: 'left', fontWeight: 600 },
                 subheader: { color: 'grey.500', align: 'left' },
@@ -120,8 +121,8 @@ const AboutUsSection = () => {
               }
               action={null}
               sx={{ alignItems: 'flex-start' }}
-              title="Rooted in Organic Farming"
-              subheader="We grow bananas, coffee, and spices using farming practices that respect the soil, support biodiversity, and create meaningful learning for visitors."
+              title={tResolved('values.organic.title')}
+              subheader={tResolved('values.organic.body')}
               slotProps={{
                 title: { color: 'grey.800', align: 'left', fontWeight: 600 },
                 subheader: { color: 'grey.500', align: 'left' },
@@ -136,7 +137,6 @@ const AboutUsSection = () => {
           href={routes.about}
           disableElevation
           sx={{
-            // border: 'none',
             display: { xs: 'inline-flex', [NAVBAR.BREAKPOINT]: 'none' },
             mt: 1.5,
             borderRadius: '10px',
@@ -148,7 +148,7 @@ const AboutUsSection = () => {
           }}
           endIcon={ICONS.arrow_forward}
         >
-          Learn More About Us
+          {tResolved('learnMore')}
         </Button>
       </Stack>
     </PageContainer>

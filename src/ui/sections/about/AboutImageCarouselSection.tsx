@@ -2,9 +2,9 @@
 
 import Banana from '@/assets/Landing/banana.jpeg'
 import Coffee from '@/assets/Landing/coffee.jpg'
-import Farm from '@/assets/Farm/FarmTour.png'
+import Farm from '@/assets/Farm/FarmTour.webp'
 import Garden from '@/assets/Landing/gardenn.jpeg'
-import Learning from '@/assets/Farm/LearningExp.png'
+import Learning from '@/assets/Farm/LearningExp.webp'
 import Spices from '@/assets/Landing/spices.jpeg'
 import PageContainer from '@/ui/components/page-container'
 import { ICONS } from '@/utilities/constants/common'
@@ -15,54 +15,58 @@ import Typography from '@mui/material/Typography'
 import type { StaticImageData } from 'next/image'
 import NextImage from 'next/image'
 import React, { startTransition, useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const AUTO_ADVANCE_MS = 4800
 
+type AboutCarouselItem = {
+  titleKey: string
+  eyebrowKey: string
+  descriptionKey: string
+  image: StaticImageData
+}
+
 const CAROUSEL_ITEMS: AboutCarouselItem[] = [
   {
-    title: 'Banana Groves',
-    eyebrow: 'Fresh harvest',
-    description: 'Walk through shaded rows of banana trees and enjoy the quiet rhythm of the farm.',
+    titleKey: 'bananaGroves.title',
+    eyebrowKey: 'bananaGroves.label',
+    descriptionKey: 'bananaGroves.body',
     image: Banana,
   },
   {
-    title: 'Learning Trails',
-    eyebrow: 'Hands-on visits',
-    description:
-      'Every visit opens up a close look at planting, tasting, and learning from the land.',
+    titleKey: 'learningTrails.title',
+    eyebrowKey: 'learningTrails.label',
+    descriptionKey: 'learningTrails.body',
     image: Learning,
   },
   {
-    title: 'Coffee Moments',
-    eyebrow: 'Tanga aroma',
-    description:
-      'Slow down with fresh coffee and discover the farm stories shared by local growers.',
+    titleKey: 'coffeeMoments.title',
+    eyebrowKey: 'coffeeMoments.label',
+    descriptionKey: 'coffeeMoments.body',
     image: Coffee,
   },
   {
-    title: 'Garden Calm',
-    eyebrow: 'Nature reset',
-    description:
-      'Quiet corners, cool shade, and open green space make the garden feel like a retreat.',
+    titleKey: 'gardenCalm.title',
+    eyebrowKey: 'gardenCalm.label',
+    descriptionKey: 'gardenCalm.body',
     image: Garden,
   },
   {
-    title: 'Spice Colours',
-    eyebrow: 'Local flavour',
-    description:
-      'See, smell, and taste the ingredients that bring the garden to life beyond the grove.',
+    titleKey: 'spiceColours.title',
+    eyebrowKey: 'spiceColours.label',
+    descriptionKey: 'spiceColours.body',
     image: Spices,
   },
   {
-    title: 'Farm Views',
-    eyebrow: 'Open air',
-    description:
-      'Wide paths and lush greenery create the kind of scenery that invites you to stay longer.',
+    titleKey: 'farmViews.title',
+    eyebrowKey: 'farmViews.label',
+    descriptionKey: 'farmViews.body',
     image: Farm,
   },
 ]
 
-const AboutImageCarouselSection = () => {
+const AboutImageCarouselSection = ({ locale }: { locale: string }) => {
+  const t = useTranslations('about.gallery')
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
@@ -90,15 +94,14 @@ const AboutImageCarouselSection = () => {
 
   return (
     <Box sx={sectionSx}>
-      <PageContainer transparent>
+      <PageContainer transparent ignoreNavHeight sx={{ py: { xs: 6, md: 8 } }}>
         <Stack spacing={5}>
           <Stack spacing={2} alignItems="center" textAlign="center">
             <Typography variant="h4" component="h2" color="grey.900" fontWeight={600}>
-              Life Around the Garden
+              {t('heading')}
             </Typography>
             <Typography variant="body2" color="grey.600" maxWidth={640}>
-              A moving glimpse of the spaces, produce, and moments that shape a visit to Tanga
-              Banana Garden.
+              {t('subheading')}
             </Typography>
           </Stack>
 
@@ -111,18 +114,22 @@ const AboutImageCarouselSection = () => {
               const offset = getOffset(index, activeIndex, CAROUSEL_ITEMS.length)
               const isActive = offset === 0
               const isFar = Math.abs(offset) > 2
+              // const title = t(item.titleKey as any)
+              // const eyebrow = t(item.eyebrowKey as any)
+              // const description = t(item.descriptionKey as any)
 
               return (
                 <Box
-                  key={item.title}
+                  key={item.titleKey}
                   sx={getSlideWrapperSx(offset, isActive, isFar)}
                   aria-hidden={!isActive}
                 >
                   <Box sx={getCardSx(isActive)}>
                     <NextImage
                       src={item.image}
-                      alt={item.title}
+                      alt={t(item.titleKey)}
                       fill
+                      placeholder="blur"
                       sizes="(max-width: 600px) 74vw, (max-width: 900px) 52vw, 36vw"
                       style={{ objectFit: 'cover' }}
                     />
@@ -131,7 +138,7 @@ const AboutImageCarouselSection = () => {
                     <Stack sx={contentSx} spacing={2}>
                       <Box sx={eyebrowSx}>
                         <Typography variant="caption" fontWeight={700} letterSpacing={1.2}>
-                          {item.eyebrow.toUpperCase()}
+                          {t(item.eyebrowKey).toUpperCase()}
                         </Typography>
                       </Box>
 
@@ -143,10 +150,10 @@ const AboutImageCarouselSection = () => {
                           color="common.white"
                           lineHeight={1.05}
                         >
-                          {item.title}
+                          {t(item.titleKey)}
                         </Typography>
                         <Typography variant="body2" color="rgba(255,255,255,0.88)" maxWidth={360}>
-                          {item.description}
+                          {t(item.descriptionKey)}
                         </Typography>
                       </Stack>
                     </Stack>
@@ -157,24 +164,33 @@ const AboutImageCarouselSection = () => {
           </Box>
 
           <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
-            <IconButton aria-label="Previous image" onClick={() => moveSlide(-1)} sx={navButtonSx}>
+            <IconButton
+              aria-label={locale === 'sw' ? 'Picha iliyopita' : 'Previous image'}
+              onClick={() => moveSlide(-1)}
+              sx={navButtonSx}
+            >
               {ICONS.arrow_back}
             </IconButton>
 
             <Stack direction="row" spacing={1.25} alignItems="center">
               {CAROUSEL_ITEMS.map((item, index) => (
                 <Box
-                  key={item.title}
+                  key={item.titleKey}
                   component="button"
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   sx={getDotSx(activeIndex === index)}
-                  aria-label={`Show ${item.title}`}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  aria-label={`${locale === 'sw' ? 'Onyesha' : 'Show'} ${t(item.titleKey as any)}`}
                 />
               ))}
             </Stack>
 
-            <IconButton aria-label="Next image" onClick={() => moveSlide(1)} sx={navButtonSx}>
+            <IconButton
+              aria-label={locale === 'sw' ? 'Picha inayofuata' : 'Next image'}
+              onClick={() => moveSlide(1)}
+              sx={navButtonSx}
+            >
               {ICONS.arrow_forward}
             </IconButton>
           </Stack>
@@ -182,13 +198,6 @@ const AboutImageCarouselSection = () => {
       </PageContainer>
     </Box>
   )
-}
-
-type AboutCarouselItem = {
-  title: string
-  eyebrow: string
-  description: string
-  image: StaticImageData
 }
 
 const getOffset = (index: number, activeIndex: number, length: number) => {
@@ -263,7 +272,7 @@ const getDotSx = (isActive: boolean) => ({
 })
 
 const sectionSx = {
-  py: { xs: 6, md: 8 },
+  // py: { xs: 6, md: 8 },
   background: 'linear-gradient(180deg, rgba(245, 246, 242, 1) 0%, rgba(236, 239, 232, 1) 100%)',
 }
 

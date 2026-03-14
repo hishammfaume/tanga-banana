@@ -13,9 +13,14 @@ export const contact = {
   root: '/contact',
 }
 
+export const blog = {
+  root: '/blog',
+}
+
 export const routes = {
   home: '/',
   experiences: experiences.root,
   about: about.root,
   contact: contact.root,
+  blog: blog.root,
 }

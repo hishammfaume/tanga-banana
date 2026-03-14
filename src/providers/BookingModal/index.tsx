@@ -21,6 +21,7 @@ import {
   Typography,
 } from '@mui/material'
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { createReservation, type CreateReservationPayload } from '@/utilities/api/tours'
 import { notistackRef } from '../Notistack'
@@ -92,6 +93,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
   preferredDate,
   preferredSlotId,
 }) => {
+  const t = useTranslations('bookingModal')
   const [date, setDate] = useState<string>(preferredDate ?? todayIsoDate())
   const [timeBand, setTimeBand] = useState<TimeBand>('morning')
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -126,7 +128,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
       setSubmitSuccess(null)
 
       if (!form.name || !form.email) {
-        setSubmitError('Name and email are required.')
+        setSubmitError(t('messages.validation.nameEmailRequired'))
         return
       }
 
@@ -146,16 +148,16 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
         setSubmitting(true)
         const res = await createReservation(payload)
         if (res) {
-          notistackRef.current?.enqueueSnackbar('Booking request submitted successfully!', {
+          notistackRef.current?.enqueueSnackbar(t('messages.snackbar.success'), {
             variant: 'success',
           })
         }
-        setSubmitSuccess(`Reservation confirmed. Code: ${res.confirmationCode}`)
+        setSubmitSuccess(t('messages.success', { code: res.confirmationCode }))
         setSubmitError(null)
       } catch (err) {
         setSubmitError((err as Error).message)
         notistackRef.current?.enqueueSnackbar(
-          'Failed to submit booking request. Please try again.',
+          t('messages.snackbar.error'),
           {
             variant: 'error',
           },
@@ -165,7 +167,38 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
         onClose()
       }
     },
-    [date, form, timeBand, onClose],
+    [date, form, timeBand, onClose, t],
+  )
+
+  const timeBandChips = useMemo<Array<{ value: TimeBand; label: string }>>(
+    () => [
+      { value: 'morning', label: t('timeBands.morning') },
+      { value: 'afternoon', label: t('timeBands.afternoon') },
+      { value: 'fullday', label: t('timeBands.fullday') },
+    ],
+    [t],
+  )
+
+  const timeBandLabel = useCallback(
+    (band: TimeBand) =>
+      band === 'morning'
+        ? t('timeBands.morning')
+        : band === 'afternoon'
+          ? t('timeBands.afternoon')
+          : t('timeBands.fullday'),
+    [t],
+  )
+
+  const formatGuestsText = useCallback(
+    (adults: number, children: number): string => {
+      const adultsLabel = t('guests.adults', { count: adults })
+
+      if (children <= 0) return adultsLabel
+
+      const childrenLabel = t('guests.children', { count: children })
+      return `${adultsLabel}, ${childrenLabel}`
+    },
+    [t],
   )
 
   return (
@@ -178,10 +211,10 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
       >
         <Stack>
           <Typography variant="h6" color="grey.800" fontWeight={600}>
-            Book Farm Tour
+            {t('title')}
           </Typography>
           <Typography variant="body2" sx={{ color: '#5b6671' }}>
-            Choose your preferred date and time, then tell us who is coming along.
+            {t('subtitle')}
           </Typography>
         </Stack>
       </DialogTitle>
@@ -195,14 +228,13 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
             mt={2}
           >
             <Stack spacing={2.25}>
-              <Typography sx={sectionLabelStyle}>Tour details</Typography>
+              <Typography sx={sectionLabelStyle}>{t('sections.tourDetails')}</Typography>
 
               <Box>
-                {/* <Typography sx={fieldLabelStyle}>Date of tour</Typography> */}
                 <TextField
                   type="date"
                   size="small"
-                  label="Date of tour"
+                  label={t('fields.date')}
                   fullWidth
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
@@ -220,7 +252,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
 
               <Box>
                 <Typography variant="body2" color="grey.600" fontWeight={600}>
-                  Preferred time
+                  {t('fields.preferredTime')}
                 </Typography>
                 <Stack direction="row" spacing={1.25} flexWrap="wrap" useFlexGap>
                   {timeBandChips.map((band) => (
@@ -249,18 +281,16 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
                 </Stack>
               </Box>
 
-              <Typography sx={sectionLabelStyle}>Your details</Typography>
+              <Typography sx={sectionLabelStyle}>{t('sections.yourDetails')}</Typography>
 
               <Box>
-                {/* <Typography sx={fieldLabelStyle}>Full name</Typography> */}
                 <TextField
                   value={form.name}
                   onChange={(e) => handleField('name', e.target.value)}
                   required
                   fullWidth
-                  label="Full Name"
-                  placeholder="Enter your full name"
-                  // sx={formFieldStyle}
+                  label={t('fields.fullName')}
+                  placeholder={t('placeholders.fullName')}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -273,16 +303,14 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
 
               <Grid container spacing={1.5}>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  {/* <Typography sx={fieldLabelStyle}>Email address</Typography> */}
                   <TextField
                     type="email"
                     value={form.email}
                     onChange={(e) => handleField('email', e.target.value)}
                     required
-                    label="Email Address"
+                    label={t('fields.email')}
                     fullWidth
-                    placeholder="name@example.com"
-                    // sx={formFieldStyle}
+                    placeholder={t('placeholders.email')}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
@@ -293,16 +321,12 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
                   />
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  {/* <Typography variant="body2" color="grey.600" fontWeight={600}>
-                    Phone number
-                  </Typography> */}
                   <TextField
                     value={form.phone}
                     onChange={(e) => handleField('phone', e.target.value)}
                     fullWidth
-                    placeholder="+255 ..."
-                    label="Phone number"
-                    // sx={formFieldStyle}
+                    placeholder={t('placeholders.phone')}
+                    label={t('fields.phone')}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
@@ -315,19 +339,16 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
               </Grid>
 
               <Box>
-                {/* <Typography variant="body2" color="grey.600" fontWeight={600}>
-                  Number of guests
-                </Typography> */}
                 <Stack spacing={1.5}>
                   <GuestStepper
-                    label="Adults"
+                    label={t('fields.adults')}
                     value={form.adults}
                     min={1}
                     onDecrement={() => handleField('adults', Math.max(1, form.adults - 1))}
                     onIncrement={() => handleField('adults', form.adults + 1)}
                   />
                   <GuestStepper
-                    label="Children"
+                    label={t('fields.children')}
                     value={form.children}
                     min={0}
                     onDecrement={() => handleField('children', Math.max(0, form.children - 1))}
@@ -338,23 +359,20 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
 
               <Box>
                 <Typography variant="body2" color="grey.600" fontWeight={600}>
-                  Additional notes
+                  {t('fields.notes')}
                 </Typography>
                 <TextField
                   value={form.notes}
                   onChange={(e) => handleField('notes', e.target.value)}
                   fullWidth
-                  // label="Additional notes"
                   multiline
                   minRows={3}
-                  placeholder="Share any special requests, accessibility needs, or preferred experiences."
-                  // sx={formFieldStyle}
+                  placeholder={t('placeholders.notes')}
                 />
               </Box>
 
               <Typography variant="body2" sx={{ color: 'warning.main' }} fontWeight={600}>
-                By sending this request, you will not be charged. Our team will confirm availability
-                and final details with you.
+                {t('notice')}
               </Typography>
 
               {submitError ? (
@@ -387,30 +405,32 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
               >
                 <Stack>
                   <Typography variant="h6" sx={{ fontWeight: 700, color: '#1f2933', mb: 1.25 }}>
-                    Your day at Tanga Banana
+                    {t('summary.title')}
                   </Typography>
 
                   <Typography variant="body2" sx={{ color: '#5e6874', mb: 2.25, lineHeight: 1.65 }}>
-                    Typical visit includes a guided farm tour, planting of trees, time to relax in
-                    the garden, and optional Tanga coffee moment.
+                    {t('summary.description')}
                   </Typography>
 
                   <Stack spacing={1.4} sx={{ mb: 2.6 }}>
-                    <SummaryRow label="Selected time" value={timeBandLabel(timeBand)} />
+                    <SummaryRow label={t('summary.selectedTime')} value={timeBandLabel(timeBand)} />
                     <SummaryRow
-                      label="Estimated duration"
-                      value={timeBand === 'fullday' ? 'Full day' : '3–4 hours'}
+                      label={t('summary.estimatedDuration')}
+                      value={
+                        timeBand === 'fullday'
+                          ? t('summary.duration.fullday')
+                          : t('summary.duration.partial')
+                      }
                     />
-                    <SummaryRow label="Ideal for" value="Families & nature lovers" />
+                    <SummaryRow label={t('summary.idealForLabel')} value={t('summary.idealForValue')} />
                     <SummaryRow
-                      label="Guests"
+                      label={t('summary.guests')}
                       value={formatGuestsText(form.adults, form.children)}
                     />
                   </Stack>
 
                   <Typography variant="body2" sx={{ color: '#5e6874', lineHeight: 1.7 }}>
-                    We will confirm exact timings and pricing with you by email or phone after
-                    receiving your request.
+                    {t('summary.footer')}
                   </Typography>
                 </Stack>
               </Box>
@@ -440,7 +460,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
                       },
                     }}
                   >
-                    Call {PHONE_NUMBER.contact.formatted}
+                    {t('contact.call', { phone: PHONE_NUMBER.contact.formatted })}
                   </Button>
                   <Button
                     component="a"
@@ -460,25 +480,25 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
                       },
                     }}
                   >
-                    Chat on WhatsApp
+                    {t('contact.whatsapp')}
                   </Button>
                 </Stack>
 
                 <Stack spacing={1.2}>
                   <ContactDetailRow
                     icon={ICONS.email_outlined}
-                    label="Email"
+                    label={t('contact.labels.email')}
                     value={EMAILS.mail}
                     href={`mailto:${EMAILS.mail}`}
                   />
                   <ContactDetailRow
                     icon={ICONS.access_time}
-                    label="Availability"
-                    value="Mon–Sun, 8am – 6pm"
+                    label={t('contact.labels.availability')}
+                    value={t('contact.availability')}
                   />
                   <ContactDetailRow
                     icon={ICONS.map_pin}
-                    label="Location"
+                    label={t('contact.labels.location')}
                     value={ADDRESS}
                   />
                 </Stack>
@@ -498,7 +518,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
         }}
       >
         <Button onClick={onClose} variant="outlined" sx={secondaryButtonStyle}>
-          Cancel
+          {t('actions.cancel')}
         </Button>
         <Button
           type="submit"
@@ -508,7 +528,7 @@ const BookingModalUI: React.FC<BookingModalUIProps> = ({
           disabled={submitting}
           startIcon={submitting ? <CircularProgress size={18} color="inherit" /> : null}
         >
-          {submitting ? 'Booking…' : 'Send Booking Request'}
+          {submitting ? t('actions.submitting') : t('actions.submit')}
         </Button>
       </DialogActions>
     </Dialog>
@@ -697,15 +717,6 @@ const GuestStepper: React.FC<GuestStepperProps> = ({
   </Box>
 )
 
-const timeBandChips: Array<{ value: TimeBand; label: string }> = [
-  { value: 'morning', label: 'Morning' },
-  { value: 'afternoon', label: 'Afternoon' },
-  { value: 'fullday', label: 'Full day' },
-]
-
-const timeBandLabel = (band: TimeBand) =>
-  band === 'morning' ? 'Morning' : band === 'afternoon' ? 'Afternoon' : 'Full day'
-
 const inferTimeBandFromSlot = (slotId?: string): TimeBand => {
   const normalized = slotId?.toLowerCase() ?? ''
 
@@ -713,13 +724,4 @@ const inferTimeBandFromSlot = (slotId?: string): TimeBand => {
   if (normalized.includes('full')) return 'fullday'
 
   return 'morning'
-}
-
-const formatGuestsText = (adults: number, children: number): string => {
-  const adultsLabel = `${adults} adult${adults === 1 ? '' : 's'}`
-
-  if (children <= 0) return adultsLabel
-
-  const childrenLabel = `${children} child${children === 1 ? '' : 'ren'}`
-  return `${adultsLabel}, ${childrenLabel}`
 }

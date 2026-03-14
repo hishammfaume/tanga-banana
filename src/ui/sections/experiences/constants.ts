@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image'
-import Tour from 'src/assets/Farm/FarmTour.png'
+import Tour from 'src/assets/Farm/FarmTour.webp'
 import Coffee from 'src/assets/Landing/coffee.png'
 import Walk from 'src/assets/Landing/caves.png'
 import Relax from 'src/assets/Landing/culture.png'

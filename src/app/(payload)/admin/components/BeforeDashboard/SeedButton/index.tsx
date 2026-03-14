@@ -1,5 +1,6 @@
 'use client'
 
+import { getLocaleHomePath, getLocalizedAppPath } from '@/utilities/localizedRoutes'
 import React, { Fragment, useCallback, useState } from 'react'
 import { toast } from '@payloadcms/ui'
 
@@ -8,7 +9,7 @@ import './index.scss'
 const SuccessMessage: React.FC = () => (
   <div>
     Database seeded! You can now{' '}
-    <a target="_blank" href="/">
+    <a target="_blank" href={getLocaleHomePath()}>
       visit your website
     </a>
   </div>
@@ -42,7 +43,10 @@ export const SeedButton: React.FC = () => {
         toast.promise(
           new Promise((resolve, reject) => {
             try {
-              fetch('/next/seed', { method: 'POST', credentials: 'include' })
+              fetch(getLocalizedAppPath(null, '/next/seed'), {
+                method: 'POST',
+                credentials: 'include',
+              })
                 .then((res) => {
                   if (res.ok) {
                     resolve(true)

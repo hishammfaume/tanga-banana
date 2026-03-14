@@ -34,18 +34,29 @@ const fadeInUp = createAnimation({
 });
 
 const fadeInUpTranslateXY = createAnimation({
-  "@keyframes fadeInUpTranslateXY": {
-    from: {
+  "@keyframes floatInFocus": {
+    "0%": {
       opacity: 0,
-      transform: "translate3d(-5px, 5px, 0)",
+      filter: "blur(14px)",
+      transform: "translate3d(0, 32px, 0) scale(0.94) rotate(-0.6deg)",
     },
-    to: {
+    "65%": {
       opacity: 1,
+      filter: "blur(0)",
+      transform: "translate3d(0, -6px, 0) scale(1.01) rotate(0deg)",
+    },
+    "100%": {
+      opacity: 1,
+      filter: "blur(0)",
       transform: "translate3d(0, 0, 0)",
     },
   },
-  animationName: "fadeInUpTranslateXY",
-  animationDelay: "0.3s",
+  animationName: "floatInFocus",
+  animationDelay: "0.15s",
+  animationDuration: "0.85s",
+  animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+  transformOrigin: "50% 60%",
+  willChange: "transform, opacity, filter",
 });
 
 export { fadeInUp, fadeInUpTranslateXY };

@@ -2,7 +2,11 @@ import fs from 'fs'
 import { minify } from 'html-minifier'
 import mjml from 'mjml'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { getAllMjmlFiles, loadAndCompileTemplate } from './helpers'
+
+const HERE = path.resolve(fileURLToPath(import.meta.url))
+const BASE_DIR = path.dirname(HERE)
 
 const build = () => {
   const files = getAllMjmlFiles(true)
@@ -10,8 +14,8 @@ const build = () => {
   // loop through the files if they are mjml files
 
   files.forEach((file) => {
-    const input = fs.readFileSync(path.join(__dirname, file + '.mjml'), 'utf8')
-    const output = path.join(__dirname, file + '.html')
+    const input = fs.readFileSync(path.join(BASE_DIR, file + '.mjml'), 'utf8')
+    const output = path.join(BASE_DIR, file + '.html')
 
     fs.writeFileSync(
       output,
@@ -28,7 +32,7 @@ const build = () => {
       ),
     )
 
-    console.log(`Built ${file} to ${output.replace(__dirname, '')}`)
+    console.log(`Built ${file} to ${output.replace(BASE_DIR, '')}`)
   })
 }
 
@@ -109,7 +113,8 @@ function main() {
   console.log('Command not found', args[0])
 }
 
-// if it is commandline, run the main function
-if (require.main === module) {
+const isEntrypoint = process.argv[1] && path.resolve(process.argv[1]) === HERE
+
+if (isEntrypoint) {
   main()
 }

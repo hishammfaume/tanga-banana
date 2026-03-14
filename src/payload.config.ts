@@ -9,21 +9,35 @@ import nodemailer from 'nodemailer'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/app/(payload)/admin/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { EMAIL_FROM_ADDRESS, EMAIL_FROM_NAME } from '@/utilities/constants/notificationEmails'
 import { Users } from './app/(payload)/admin/collections/Users'
+import { BlogImages } from './app/(payload)/admin/collections/BlogImages'
+import { Blogs } from './app/(payload)/admin/collections/Blogs'
+import { BlogTags } from './app/(payload)/admin/collections/BlogTags'
 import { TourReservations } from './app/(payload)/admin/collections/TourReservations'
 import { ContactMessages } from './app/(payload)/admin/collections/ContactMessages'
-// import { Media } from './app/(payload)/admin/collections/Media'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const defaultFromAddress = process.env.EMAIL_FROM_ADDRESS || 'info@tanga-garden.com'
-const defaultFromName = process.env.EMAIL_FROM_NAME || 'Tanga Banana'
-const mailtrapToken = process.env.MAILTRAP_TOKEN
+const mailtrapToken = process.env.MAILTRAP_API_KEY || process.env.MAILTRAP_TOKEN
+const mailtrapUseSandbox = process.env.MAILTRAP_USE_SANDBOX === 'true'
+const mailtrapInboxId = process.env.MAILTRAP_INBOX_ID
+  ? Number(process.env.MAILTRAP_INBOX_ID)
+  : undefined
+const hasSmtpConfig = Boolean(
+  process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS,
+)
+const emailTransportMode =
+  process.env.EMAIL_TRANSPORT?.toLowerCase() || (hasSmtpConfig ? 'smtp' : mailtrapToken ? 'mailtrap' : 'smtp')
+const useMailtrapApiTransport =
+  emailTransportMode === 'mailtrap' || emailTransportMode === 'mailtrap-api'
 
-const emailTransport = mailtrapToken
+const emailTransport = useMailtrapApiTransport && mailtrapToken
   ? nodemailer.createTransport(
       MailtrapTransport({
         token: mailtrapToken,
+        sandbox: mailtrapUseSandbox,
+        testInboxId: mailtrapUseSandbox ? mailtrapInboxId : undefined,
       }),
     )
   : nodemailer.createTransport({
@@ -72,6 +86,20 @@ export default buildConfig({
       ],
     },
   },
+  localization: {
+    defaultLocale: 'en',
+    fallback: true,
+    locales: [
+      {
+        code: 'en',
+        label: 'English',
+      },
+      {
+        code: 'sw',
+        label: 'Swahili',
+      },
+    ],
+  },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: postgresAdapter({
@@ -79,7 +107,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL || '',
     },
   }),
-  collections: [Users, TourReservations, ContactMessages],
+  collections: [Users, BlogImages, BlogTags, Blogs, TourReservations, ContactMessages],
   cors: [getServerSideURL()].filter(Boolean),
   plugins,
   secret: process.env.PAYLOAD_SECRET,
@@ -106,8 +134,8 @@ export default buildConfig({
     tasks: [],
   },
   email: nodemailerAdapter({
-    defaultFromAddress,
-    defaultFromName,
+    defaultFromAddress: EMAIL_FROM_ADDRESS,
+    defaultFromName: EMAIL_FROM_NAME,
     transport: emailTransport,
   }),
 })

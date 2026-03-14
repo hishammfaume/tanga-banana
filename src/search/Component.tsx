@@ -5,15 +5,22 @@ import React, { useState, useEffect } from 'react'
 import { useDebounce } from '@/utilities/useDebounce'
 import { useRouter } from 'next/navigation'
 
-export const Search: React.FC = () => {
+const normalizePath = (path: string) => {
+  return path.startsWith('/') ? path : `/${path}`
+}
+
+export const Search: React.FC<{
+  path: string
+}> = ({ path }) => {
   const [value, setValue] = useState('')
   const router = useRouter()
 
   const debouncedValue = useDebounce(value)
+  const searchPath = normalizePath(path)
 
   useEffect(() => {
-    router.push(`/search${debouncedValue ? `?q=${debouncedValue}` : ''}`)
-  }, [debouncedValue, router])
+    router.push(`${searchPath}${debouncedValue ? `?q=${debouncedValue}` : ''}`)
+  }, [debouncedValue, router, searchPath])
 
   return (
     <div>

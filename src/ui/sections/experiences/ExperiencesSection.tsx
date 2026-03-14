@@ -4,10 +4,84 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import React from 'react'
 import { CheckIcon } from '@/ui/components/icons'
-import FULL_EXPERIENCE_ITEMS from './constants'
+// import FULL_EXPERIENCE_ITEMS from './constants'
 import HeroImage from './hero-image'
+import { getTranslations } from 'next-intl/server'
+import { StaticImageData } from 'next/image'
+import Tour from 'src/assets/Farm/FarmTour.webp'
+import Coffee from 'src/assets/Landing/coffee.png'
+import Walk from 'src/assets/Landing/caves.png'
+import Relax from 'src/assets/Landing/culture.png'
 
-const ExperiencesSection = () => {
+const ExperiencesSection = async ({ locale }: { locale: string }) => {
+  const t = await getTranslations({ locale, namespace: 'experiences' })
+
+  const FULL_EXPERIENCE_ITEMS: {
+    sectionId: string
+    title: string
+    caption: string
+    description: string
+    points: string[]
+    chips: string[]
+    image: StaticImageData
+  }[] = [
+    {
+      sectionId: 'farm-tours',
+      title: t('farmTours.heading'),
+      caption: t('farmTours.intro'),
+      description: t('farmTours.body'),
+      points: [
+        t('farmTours.features.f1'),
+        t('farmTours.features.f2'),
+        t('farmTours.features.f3'),
+        t('farmTours.features.f4'),
+      ],
+      chips: t.raw('farmTours.tags') as string[],
+      image: Tour,
+    },
+    {
+      sectionId: 'tanga-coffee',
+      title: t('coffee.heading'),
+      caption: t('coffee.intro'),
+      description: t('coffee.body'),
+      points: [
+        t('coffee.features.f1'),
+        t('coffee.features.f2'),
+        t('coffee.features.f3'),
+        t('coffee.features.f4'),
+      ],
+      chips: t.raw('coffee.tags') as string[],
+      image: Coffee,
+    },
+    {
+      sectionId: 'cultural-walks',
+      title: t('culturalWalks.heading'),
+      caption: t('culturalWalks.intro'),
+      description: t('culturalWalks.body'),
+      points: [
+        t('culturalWalks.features.f1'),
+        t('culturalWalks.features.f2'),
+        t('culturalWalks.features.f3'),
+        t('culturalWalks.features.f4'),
+      ],
+      chips: t.raw('culturalWalks.tags') as string[],
+      image: Walk,
+    },
+    {
+      sectionId: 'garden-relaxation',
+      title: t('freshAir.heading'),
+      caption: t('freshAir.intro'),
+      description: t('freshAir.body'),
+      points: [
+        t('freshAir.features.f1'),
+        t('freshAir.features.f2'),
+        t('freshAir.features.f3'),
+        t('freshAir.features.f4'),
+      ],
+      chips: t.raw('freshAir.tags') as string[],
+      image: Relax,
+    },
+  ]
   return (
     <Stack spacing={{ xs: 5, md: 7 }} justifyContent="center" alignItems="center" mb={6}>
       <Stack
@@ -25,14 +99,13 @@ const ExperiencesSection = () => {
           textTransform="uppercase"
           letterSpacing={1.6}
         >
-          Experiences
+          {t('hero.headline')}
         </Typography>
-        <Typography variant="h4" color="grey.900" fontWeight={600} lineHeight={1.15}>
-          Explore each experience through richer stories and a stronger visual rhythm.
-        </Typography>
+        {/* <Typography variant="h4" color="grey.900" fontWeight={600} lineHeight={1.15}>
+          {t('intro.heading')}
+        </Typography> */}
         <Typography variant="body2" color="grey.600">
-          Each experience is designed to help visitors understand the farm, enjoy the landscape, and
-          choose the right mix of learning, culture, and relaxation for their visit.
+          {t('intro.body')}
         </Typography>
       </Stack>
 
@@ -67,15 +140,11 @@ const ExperiencesSection = () => {
               left: index % 2 === 0 ? 'auto' : -60,
             }}
           />
-
           <Stack
             spacing={{ xs: 3, md: 0 }}
             justifyContent="center"
             alignItems="stretch"
-            direction={{
-              xs: 'column',
-              md: index % 2 === 0 ? 'row' : 'row-reverse',
-            }}
+            direction={{ xs: 'column', md: index % 2 === 0 ? 'row' : 'row-reverse' }}
           >
             <Box display="flex" width={{ xs: '100%', md: '46%' }} flexShrink={0}>
               <HeroImage
@@ -86,7 +155,6 @@ const ExperiencesSection = () => {
                 indexLabel={`${index + 1}`.padStart(2, '0')}
               />
             </Box>
-
             <Stack
               flex={1}
               minWidth={0}
@@ -110,11 +178,9 @@ const ExperiencesSection = () => {
                   {item.caption}
                 </Typography>
               </Stack>
-
               <Typography variant="body2" color="grey.500" textAlign="start" lineHeight={1.8}>
                 {item.description}
               </Typography>
-
               <Box
                 sx={{
                   display: 'grid',
@@ -162,7 +228,6 @@ const ExperiencesSection = () => {
                   </Stack>
                 ))}
               </Box>
-
               <Stack direction="row" spacing={1.25} useFlexGap flexWrap="wrap">
                 {item.chips.map((chip) => (
                   <Chip

@@ -28,43 +28,119 @@
     "about": "Kuhusu Sisi",
     "contact": "Wasiliana Nasi",
     "book": "Hifadhi Nafasi ya Ziara",
+    "blog": "Makala",
     "phone": "0702 666773",
     "languageSwitch": "English"
+  },
+
+  "bookingModal": {
+    "title": "Hifadhi Nafasi ya Ziara ya Shamba",
+    "subtitle": "Chagua tarehe na muda unaopendelea, kisha utuambie ni nani watakaokuja pamoja nawe.",
+    "sections": {
+      "tourDetails": "Maelezo ya ziara",
+      "yourDetails": "Taarifa zako"
+    },
+    "fields": {
+      "date": "Tarehe ya ziara",
+      "preferredTime": "Muda unaopendelea",
+      "fullName": "Jina kamili",
+      "email": "Anwani ya barua pepe",
+      "phone": "Namba ya simu",
+      "adults": "Watu wazima",
+      "children": "Watoto",
+      "notes": "Maelezo ya ziada"
+    },
+    "placeholders": {
+      "fullName": "Andika jina lako kamili",
+      "email": "name@example.com",
+      "phone": "+255 ...",
+      "notes": "Tueleze mahitaji maalum, mahitaji ya ufikikaji, au uzoefu unaopendelea."
+    },
+    "timeBands": {
+      "morning": "Asubuhi",
+      "afternoon": "Mchana",
+      "fullday": "Siku nzima"
+    },
+    "notice": "Kwa kutuma ombi hili hutatozwa. Timu yetu itathibitisha upatikanaji na maelezo ya mwisho pamoja nawe.",
+    "messages": {
+      "validation": {
+        "nameEmailRequired": "Jina na barua pepe vinahitajika."
+      },
+      "snackbar": {
+        "success": "Ombi la uhifadhi limetumwa kwa mafanikio!",
+        "error": "Imeshindikana kutuma ombi la uhifadhi. Tafadhali jaribu tena."
+      },
+      "success": "Ombi la uhifadhi limetumwa. Namba ya kumbukumbu: {code}"
+    },
+    "summary": {
+      "title": "Siku yako Tanga Banana",
+      "description": "Ziara ya kawaida hujumuisha matembezi ya shamba yanayoongozwa, upandaji wa miti, muda wa kupumzika bustanini, na wakati wa hiari wa kahawa ya Tanga.",
+      "selectedTime": "Muda uliochaguliwa",
+      "estimatedDuration": "Muda unaokadiriwa",
+      "duration": {
+        "fullday": "Siku nzima",
+        "partial": "Saa 3–4"
+      },
+      "idealForLabel": "Inafaa kwa",
+      "idealForValue": "Familia na wapenda asili",
+      "guests": "Wageni",
+      "footer": "Tutathibitisha muda halisi na bei pamoja nawe kupitia barua pepe au simu baada ya kupokea ombi lako."
+    },
+    "contact": {
+      "call": "Piga simu {phone}",
+      "whatsapp": "Ongea kupitia WhatsApp",
+      "availability": "Jumatatu–Jumapili, 8am – 6pm",
+      "labels": {
+        "email": "Barua pepe",
+        "availability": "Upatikanaji",
+        "location": "Mahali"
+      }
+    },
+    "actions": {
+      "cancel": "Ghairi",
+      "submitting": "Inatuma...",
+      "submit": "Tuma Ombi la Uhifadhi"
+    },
+    "guests": {
+      "adults": "{count, plural, one {# mtu mzima} other {# watu wazima}}",
+      "children": "{count, plural, one {# mtoto} other {# watoto}}"
+    }
   },
 
   "home": {
     "hero": {
       "headline": "Pumzika Katika Bustani ya Asili Tanga",
       "subheadline": "Tembelea shamba la ndizi, kahawa na viungo Tanga – mazingira ya kijani kibichi na hewa safi yanayokufanya upumzike mbali na msongamano wa mjini.",
-      "cta": "Hifadhi Nafasi ya Ziara"
+      "cta": "Hifadhi Nafasi ya Ziara",
+      "secondaryCta": "Chunguza Matukio"
     },
     "about": {
       "label": "Kuhusu Sisi",
-      "heading": "Shamba la Kazi la Ndizi, Kahawa na Viungo Tanga",
-      "body": "Tanga Banana Garden ni shamba la kazi la ndizi, kahawa na viungo katika mji wa Tanga, Tanzania. Tunakukaribisha upumzike, uvume hewa safi, na urudi kuungana na asili katika mazingira ya utulivu na urafiki.",
+      "heading": "Shamba la Ndizi, Kahawa na Viungo Tanga",
+      "body": "Tanga Banana Garden ni shamba la ndizi, kahawa na viungo katika mji wa Tanga, Tanzania. Tunakukaribisha upumzike, uvute hewa safi, na upate asilia katika mazingira ya utulivu na urafiki.",
       "features": {
         "daytrip": "Safari rahisi ya siku kutoka mjini Tanga",
         "groves": "Mashamba ya ndizi, kahawa na viungo",
-        "family": "Inafaa familia na vikundi vya shule"
+        "family": "Kivutio kwa familia na vikundi vya shule"
       },
-      "learnMore": "Jifunze Zaidi Kuhusu Sisi"
-    },
-    "values": {
-      "families": {
-        "title": "Inafaa Familia na Wapenda Asili",
-        "body": "Njia salama za kutembea, vituo vya kupumzika vyenye kivuli, na wenyeji wa ukarimu hufanya hii kuwa safari rahisi ya siku kwa familia, wasafiri na vikundi vya shule."
-      },
-      "organic": {
-        "title": "Imejengwa juu ya Kilimo cha Kikaboni",
-        "body": "Tunalima ndizi, kahawa na viungo kwa kutumia mbinu za kilimo zinazoiheshimu ardhi, kusaidia bayoanuwai, na kuunda ujifunzaji wenye maana kwa wageni."
+      "learnMore": "Jifunze Zaidi Kuhusu Sisi",
+      "values": {
+        "families": {
+          "title": "Kivutio kwa Familia na Wapenda Asili",
+          "body": "Njia salama za kutembea, vituo vya kupumzika vyenye kivuli, na wenyeji wenye ukarimu hufanya hii kuwa safari rahisi ya siku kwa familia, wasafiri, na makundi ya shule."
+        },
+        "organic": {
+          "title": "Kilimo Hai",
+          "body": "Tunalima ndizi, kahawa na viungo kwa kutumia mbinu za kilimo zinazoheshimu udongo, kusaidia bayoanuwai, na elimu kilimo kwa wageni."
+        }
       }
     },
     "experiences": {
-      "heading": "Uzoefu wa Kweli wa Shamba Tanga",
+      "heading": "Uzoefu wa Shamba Tanga",
       "subheading": "Chunguza ziara za shamba zinazoongozwa, kahawa safi, matembezi ya utamaduni, na maeneo ya utulivu yanayofanya Tanga Banana Garden kuwa safari ya siku isiyosahaulika.",
       "farmTours": {
         "title": "Ziara za Shamba",
-        "body": "Tembea katika mashamba ya ndizi na viungo, jifunze jinsi mazao yanavyolimwa, na ufurahie ziara ya shamba inayokufanya uhisi karibu na ardhi.",
+        "body": "Tembea katika mashamba ya ndizi na viungo, jifunze jinsi mazao yanavyolimwa, na ufurahie ziara ya shamba inayokufanya ujihisi karibu na kilimo.",
         "link": "Jifunze zaidi"
       },
       "coffee": {
@@ -74,12 +150,12 @@
       },
       "culturalWalks": {
         "title": "Matembezi ya Utamaduni",
-        "body": "Ungana na maisha ya kijiji, hadithi za ndani, na urithi wa karibu katika matembezi ya utulivu yanayoongozwa.",
+        "body": "Ungana na maisha ya kitamaduni, hadithi za ndani, na urithi wa karibu katika matembezi ya utulivu.",
         "link": "Jifunze zaidi"
       },
       "freshAir": {
         "title": "Hewa Safi",
-        "body": "Pumzika mbali na kelele za jiji na ufurahie mapumziko ya familia yenye utulivu umezingirwa na mimea na hewa safi ya mashamba.",
+        "body": "Pumzika mbali na kelele za jiji na ufurahie mapumziko ya familia yenye utulivu ukiwa umezingirwa na mimea na hewa safi ya mashamba.",
         "link": "Jifunze zaidi"
       }
     },
@@ -110,7 +186,7 @@
       }
     },
     "faq": {
-      "heading": "Panga Ziara Yako ya Kwanza ya Shamba Tanga",
+      "heading": "Panga Ziara Yako ya Shamba Tanga",
       "label": "Maswali Yanayoulizwa Mara Kwa Mara",
       "q1": {
         "question": "Nitatarajia nini katika ziara ya shamba Tanga?",
@@ -138,7 +214,7 @@
       }
     },
     "cta": {
-      "heading": "Uko Tayari Kuhifadhi Nafasi ya Ziara ya Shamba Tanga?",
+      "heading": "Uko Tayari Kubook Nafasi ya Ziara ya Shamba Tanga?",
       "body": "Panga matembezi ya familia, ziara ya kahawa, au safari ya shule na utumie muda katika shamba la kazi la ndizi, kahawa na viungo karibu na mji wa Tanga.",
       "button": "Hifadhi Nafasi ya Ziara"
     }
@@ -249,13 +325,21 @@
       "q6": {
         "question": "Je, ninaweza kujitolea au kufanya internship katika shamba la kikaboni Tanzania?",
         "answer": "Tunakaribisha maombi kutoka kwa wanafunzi, wasafiri wa gap year, na wanafunzi wa kilimo wanaopenda kilimo endelevu, kazi ya jamii, na agritourism Tanzania. Wasiliana nasi kujadili fursa."
+      },
+      "q7": {
+        "question": "Je, uzoefu huu unafikika kwa wageni wenye ulemavu?",
+        "answer": "Ndiyo. Maeneo makuu ya wageni yanayotumiwa kwa ziara za shamba na mapumziko bustanini yanafaa kwa viti vya magurudumu, yana njia zinazofikika, na yana nafasi ya kutosha kwa wageni wenye changamoto za uhamaji kutembea kwa urahisi. Ikiwa una mahitaji maalum ya ufikikaji, wasiliana nasi kabla ya ziara yako na tutakusaidia kupanga uzoefu unaofaa zaidi."
+      },
+      "q8": {
+        "question": "Je, kuna vyoo safi na maji safi wakati wa ziara?",
+        "answer": "Ndiyo. Wageni wanapata vyoo safi na maji safi wakati wa uzoefu wao, jambo linalofanya shamba liwe na faraja kwa familia, vikundi vya shule, na wageni wanaotumia saa kadhaa eneo la shamba."
       }
     }
   },
 
   "about": {
     "hero": {
-      "headline": "Kuhusu Tanga Banana Garden – Hadithi Yetu na Falsafa ya Shamba",
+      "headline": "Hadithi Yetu na Falsafa ya Shamba",
       "subheadline": "Gundua jinsi Tanga Banana Garden ilivyokua kuwa shamba la karibu la ndizi, kahawa na viungo ambapo wageni wanaweza kujifunza kuhusu kilimo endelevu na kufurahia muda wenye maana nje ya nyumba."
     },
     "story": {
@@ -348,6 +432,14 @@
       "q5": {
         "question": "Je, ninaweza kununua mazao ya kikaboni safi ya shamba katika Tanga Banana Garden?",
         "answer": "Ndiyo. Wageni wanaweza kununua mazao mapya ya shamba ikiwa ni pamoja na viungo vya kikaboni, kahawa ya ndani, na matunda ya tropiki ya msimu yaliyolimwa shambani."
+      },
+      "q6": {
+        "question": "Je, Tanga Banana Garden inafikika kwa wageni wenye ulemavu?",
+        "answer": "Ndiyo. Maeneo makuu ya wageni yanafaa kwa viti vya magurudumu, yana njia zinazofikika, na yana nafasi ya kutosha kwa wageni wenye changamoto za uhamaji kutembea kwa urahisi. Ikiwa una mahitaji maalum ya ufikikaji, wasiliana nasi kabla ya ziara yako na tutakusaidia kupanga."
+      },
+      "q7": {
+        "question": "Je, kuna vyoo safi na maji safi kwa wageni?",
+        "answer": "Ndiyo. Wageni wanapata vyoo safi na maji safi wakati wa ziara yao, ili familia, vikundi vya shule, na wageni wa siku moja waweze kuwa na faraja wanapotumia muda shambani."
       }
     }
   },
@@ -393,6 +485,7 @@
     },
     "faq": {
       "label": "Maswali ya Uhifadhi na Wageni",
+      "heading": "Mambo muhimu kabla ya kuwasiliana nasi",
       "q1": {
         "question": "Je, ninahitaji kuhifadhi nafasi mapema?",
         "answer": "Ingawa wageni wa kutembea wanakaribisha bustanini, tunapendekeza kuhifadhi nafasi ya ziara za shamba, uzoefu wa kahawa, na ziara za shule angalau masaa 24 kabla."
@@ -430,12 +523,35 @@
     "findUs": "Tupate kwenye Google Maps",
     "whatsapp": "Tuma WhatsApp",
     "instagram": "Instagram",
-    "copyright": "Hakimiliki © 2026 Tanga Banana Garden. Haki zote zimehifadhiwa."
+    "copyrightShort": "© {year} Haki zote zimehifadhiwa.",
+    "copyrightLong": "Hakimiliki © {year} {siteTitle}. Haki zote zimehifadhiwa."
   },
 
   "cta": {
     "heading": "Uko Tayari Kuhifadhi Nafasi ya Ziara ya Shamba Tanga?",
     "body": "Panga matembezi ya familia, ziara ya kahawa, au safari ya shule na utumie muda katika shamba la kazi la ndizi, kahawa na viungo karibu na mji wa Tanga.",
     "button": "Hifadhi Nafasi ya Ziara"
+  },
+  "blog": {
+    "meta": {
+      "title": "Makala | Ziara za Shamba, Agritourism na Mambo ya Kufanya Tanga – Tanga Banana Garden",
+      "description": "Mwongozo wa agritourism Tanzania, sehemu bora za kutembelea Tanga, ziara za shamba, uzoefu wa kahawa, eco utalii, safari za shule, na zaidi kutoka Tanga Banana Garden.",
+      "keywords": "mambo ya kufanya Tanga, agritourism Tanzania, ziara ya shamba Tanzania, sehemu za kutembelea Tanga, uzoefu wa kahawa Tanzania, eco utalii Tanzania, safari ya shule Tanzania"
+    },
+    "index": {
+      "heading": "Mwongozo, Hadithi na Vidokezo vya Safari",
+      "subheading": "Agritourism Tanzania · Mambo ya kufanya Tanga · Ziara za shamba · Kahawa · Eco utalii · Safari za shule",
+      "empty": "Hakuna makala bado — angalia tena hivi karibuni."
+    },
+    "post": {
+      "galleryHeading": "Picha kutoka Shambani",
+      "relatedHeading": "Unaweza pia kupenda"
+    },
+    "cta": {
+      "label": "Uko Tayari Kutembelea?",
+      "heading": "Hifadhi ziara ya shamba na uipitie mwenyewe",
+      "body": "Tembea misitu ya ndizi, onja kahawa safi ya Tanga, na ufurahie siku ya utulivu karibu na mji. Hifadhi moja kwa moja au tupigie simu — tutakusaidia kupanga ziara sahihi.",
+      "book": "Hifadhi Ziara ya Shamba"
+    }
   }
 }

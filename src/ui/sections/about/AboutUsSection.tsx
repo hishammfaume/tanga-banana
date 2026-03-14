@@ -3,11 +3,18 @@ import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import React from 'react'
 import HeroImage from '../experiences/hero-image'
-import AboutImage from '@/assets/Farm/Ideal.png'
+import AboutImage from '@/assets/Farm/Ideal.webp'
 import NextLink from 'next/link'
 import { routes } from '@/routes'
+import { getTranslations } from 'next-intl/server'
 
-const AboutUsSection = () => {
+const AboutUsSection = async ({ locale }: { locale: string }) => {
+  const t = await getTranslations({ locale, namespace: 'about.story' })
+  // const tNav = await getTranslations({ locale, namespace: 'nav' })
+
+  const experiencesLabel = locale === 'sw' ? 'uzoefu wa shamba' : 'farm experiences'
+  const contactLabel = locale === 'sw' ? 'mawasiliano' : 'contact page'
+
   return (
     <Box>
       <Stack
@@ -21,6 +28,7 @@ const AboutUsSection = () => {
         <HeroImage
           src={AboutImage}
           alt="Banana, coffee, and spice growing areas at Tanga Banana Garden in Tanga"
+          priority
         />
         <Stack spacing={3} textAlign="left">
           <Typography
@@ -31,34 +39,62 @@ const AboutUsSection = () => {
             fontWeight={600}
             lineHeight={1.25}
           >
-            More Than Just a Farm
+            {t('heading')}
           </Typography>
           <Typography variant="body2" align="left" color="grey.500">
-            Tanga Banana Garden began with a simple vision: to create a peaceful escape within the
-            City of Tanga where nature thrives. What started as a modest cultivation of bananas has
-            blossomed into a diverse ecosystem of coffee, spices, and lush greenery.
+            {t('body1')}
           </Typography>
           <Typography variant="body2" align="left" color="grey.500">
-            Today, the farm welcomes families, student groups, and travelers who want more than a
-            quick stop. Visitors come here to slow down, ask questions, and understand the local
-            farming story behind each crop.
+            {t('body2')}
           </Typography>
           <Typography variant="body2" align="left" color="grey.500">
-            Our work is rooted in responsible growing and practical learning. If you want to see how
-            that turns into a visitor experience, explore our{' '}
-            <Link
-              component={NextLink}
-              href={routes.experiences}
-              color="primary.main"
-              underline="hover"
-            >
-              farm experiences
-            </Link>{' '}
-            or head to the{' '}
-            <Link component={NextLink} href={routes.contact} color="primary.main" underline="hover">
-              contact page
-            </Link>{' '}
-            to plan a visit.
+            {locale === 'sw' ? (
+              <>
+                Kazi yetu imejengwa juu ya kilimo cha uwajibikaji na kujifunza kwa vitendo. Kama
+                unataka kuona jinsi hilo linavyogeuka kuwa uzoefu wa wageni, chunguza{' '}
+                <Link
+                  component={NextLink}
+                  href={routes.experiences}
+                  color="primary.main"
+                  underline="hover"
+                >
+                  {experiencesLabel}
+                </Link>{' '}
+                au nenda kwenye{' '}
+                <Link
+                  component={NextLink}
+                  href={routes.contact}
+                  color="primary.main"
+                  underline="hover"
+                >
+                  {contactLabel}
+                </Link>{' '}
+                kupanga ziara.
+              </>
+            ) : (
+              <>
+                Our work is rooted in responsible growing and practical learning. If you want to see
+                how that turns into a visitor experience, explore our{' '}
+                <Link
+                  component={NextLink}
+                  href={routes.experiences}
+                  color="primary.main"
+                  underline="hover"
+                >
+                  {experiencesLabel}
+                </Link>{' '}
+                or head to the{' '}
+                <Link
+                  component={NextLink}
+                  href={routes.contact}
+                  color="primary.main"
+                  underline="hover"
+                >
+                  {contactLabel}
+                </Link>{' '}
+                to plan a visit.
+              </>
+            )}
           </Typography>
         </Stack>
       </Stack>

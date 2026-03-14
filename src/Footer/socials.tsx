@@ -7,17 +7,22 @@ import { SxProps } from '@mui/material/styles'
 
 const SOCIALS_ENTRIES = Object.entries(SOCIALS)
 
-const FooterSocials = (props: StackProps) => {
+type FooterSocialsProps = StackProps & {
+  titles?: Partial<Record<keyof typeof SOCIALS, string>>
+}
+
+const FooterSocials = ({ titles, ...props }: FooterSocialsProps) => {
   return (
     <Stack direction="row" spacing={2} {...props} sx={mergeSxProps(sx, props.sx)}>
       {SOCIALS_ENTRIES.map(([key, value]) => {
+        const title = titles?.[key as keyof typeof SOCIALS] ?? value.title
         return (
-          <Tooltip key={key} title={value.title} arrow>
+          <Tooltip key={key} title={title} arrow>
             <Link
               href={value.link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={value.title}
+              aria-label={title}
             >
               {value.icon}
             </Link>

@@ -170,7 +170,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
             <SpeedInsights />
             <Navbar />
             {children}
-            <Footer />
+            <Footer locale={locale} />
           </Providers>
         </NextIntlClientProvider>
       </body>

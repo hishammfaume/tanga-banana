@@ -9,7 +9,13 @@ import React from 'react'
 import { ICONS } from '@/utilities/constants/common'
 import CardActions from '@mui/material/CardActions'
 
-const ExperienceCard = ({ icon, title, description, learnMoreHref }: ExperienceCardProps) => {
+const ExperienceCard = ({
+  icon,
+  title,
+  description,
+  learnMoreHref,
+  learnMoreLabel,
+}: ExperienceCardProps) => {
   return (
     <Card>
       <CardContent>
@@ -53,7 +59,7 @@ const ExperienceCard = ({ icon, title, description, learnMoreHref }: ExperienceC
             }}
             endIcon={ICONS.arrow_forward}
           >
-            Learn more
+            {learnMoreLabel || 'Learn more'}
           </Button>
         ) : null}
       </CardActions>
@@ -67,6 +73,7 @@ interface ExperienceCardProps {
   description: string
   /** Optional link to show a Learn more button; omit to hide (used outside home page) */
   learnMoreHref?: string
+  learnMoreLabel?: string
 }
 
 export default ExperienceCard

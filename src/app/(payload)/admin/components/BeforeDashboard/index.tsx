@@ -1,6 +1,7 @@
 import { Banner } from '@payloadcms/ui/elements/Banner'
 import React from 'react'
 
+import { getLocaleHomePath } from '@/utilities/localizedRoutes'
 import { SeedButton } from './SeedButton'
 import './index.scss'
 
@@ -17,7 +18,7 @@ const BeforeDashboard: React.FC = () => {
         <li>
           <SeedButton />
           {' with a few pages, posts, and projects to jump-start your new site, then '}
-          <a href="/" target="_blank">
+          <a href={getLocaleHomePath()} target="_blank">
             visit your website
           </a>
           {' to see the results.'}
